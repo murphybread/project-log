@@ -1,0 +1,25 @@
+.tab-button {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  background-color: #3b82f6;
+  color: white;
+}
+
+.tab-button:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.5);
+}
+
+.tab-button.active {
+  background-color: #7e8ea8b2; /* slate-800 */
+  color: #086d4e; /* red-500 */
+}
+
+/* 선택적으로 hover 효과를 다르게 줄 수 있습니다 */
+.tab-button.active:hover {
+  /* transform: translateY(-20px); */
+  box-shadow: 0 4px 6px rgba(59, 130, 246, 0.5);
+}

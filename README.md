@@ -95,5 +95,6 @@ UI UX
 
 #### Components
 
+- Tab
 - TabButton
   - 해당 프로젝트 설정 시 클릭하는 버튼

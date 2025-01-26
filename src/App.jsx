@@ -9,15 +9,29 @@ function App() {
 
   return (
     <>
-      <TabButton name="Home" className="text-red-500" />
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+      <TabButton name="Home" />
+      <TabButton name="Page1" />
+
+      <button
+        className="
+  px-6 
+  py-3 
+  bg-blue-500 
+  text-white 
+  rounded-lg 
+  shadow-md 
+  transition-all 
+  duration-300 
+  ease-in-out 
+  transform 
+  hover:-translate-y-4 
+  hover:shadow-xl
+  hover:delay-100
+"
+      >
+        Hover Me
+      </button>
+
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
