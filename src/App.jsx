@@ -9,7 +9,7 @@ function App() {
 
   return (
     <>
-      <TabButton name="Home" />
+      <TabButton name="Home" className="text-red-500" />
       <div>
         <a href="https://vite.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />

@@ -1,3 +1,3 @@
-export function TabButton({ name }) {
-  return <button>{name}</button>;
+export function TabButton({ name, className }) {
+  return <button className={className}>{name}</button>;
 }
