@@ -3,6 +3,7 @@ import reactLogo from "./assets/react.svg";
 import viteLogo from "/vite.svg";
 import "./App.css";
 import { TabButton } from "./components/TabButton.jsx";
+import { ProjectContainer } from "@components/ProjectContainer.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -32,6 +33,7 @@ function App() {
         Hover Me
       </button>
 
+      <ProjectContainer />
       <h1>Vite + React</h1>
       <div className="card">
         <button onClick={() => setCount((count) => count + 1)}>
