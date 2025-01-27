@@ -9,8 +9,9 @@
 }
 
 .tab-button:hover {
-  transform: translateY(-15px);
+  transform: translateY(-20px);
   box-shadow: 0 4px 6px rgba(59, 130, 246, 0.5);
+  border: 2px solid black;
 }
 
 .tab-button.active {
