@@ -85,7 +85,6 @@ UI UX
 
 - ## 프로젝트들을 선택해서 볼수 있는 GNB
   - 프로젝트 선택시
-  
 - ## 커밋 목록이 보이는 SNB
 
 ### CSS
@@ -96,6 +95,8 @@ UI UX
 
 #### Components
 
-- Tab
+- ProjectContainer
+  - 프로젝트 표시 용도 컨테이너
+  - {child}CommitsContainer
 - TabButton
   - 해당 프로젝트 설정 시 클릭하는 버튼
