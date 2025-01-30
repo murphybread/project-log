@@ -4,15 +4,16 @@ import viteLogo from "/vite.svg";
 import "./App.css";
 import { TabButton } from "./components/TabButton.jsx";
 import { ProjectContainer } from "@components/ProjectContainer.jsx";
+import { Timer } from "@components/Timer.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
+      <Timer />
       <TabButton name="Home" />
       <TabButton name="Page1" />
-
       <button
         className="
   px-6 
@@ -32,7 +33,6 @@ function App() {
       >
         Hover Me
       </button>
-
       <ProjectContainer />
       <h1>Vite + React</h1>
       <div className="card">

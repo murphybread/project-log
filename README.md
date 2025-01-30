@@ -100,3 +100,7 @@ UI UX
   - {child}CommitsContainer
 - TabButton
   - 해당 프로젝트 설정 시 클릭하는 버튼
+- TimerContainer
+  - timer 버튼
+  - 시작 <> 정지 버튼
+  - 기록 버튼
