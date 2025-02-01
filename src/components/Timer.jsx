@@ -42,14 +42,29 @@ const RecordButton = styled.button`
 `;
 
 import React from "react";
+import { useState, useEffect } from "react";
 
 export function Timer() {
+  const displayTime = (time) => {
+    return Math.min(time, 59.99).toFixed(0).padStart(2, "0");
+  };
+
+  const [time, setTime] = useState(4000000);
+  useEffect(() => {
+    const id = setInterval(() => setTime((prev) => prev + 10), 10);
+    return () => clearInterval(id);
+  }, []);
+
+  const hours = Math.floor(time / (1000 * 60 * 60));
+  const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((time % (1000 * 60)) / 1000);
+
   return (
     <TimerContainer>
       <TimerRow>
-        <TimerItem>00h</TimerItem>
-        <TimerItem>00M</TimerItem>
-        <TimerItem>0.000S</TimerItem>
+        <TimerItem>{displayTime(hours)}H</TimerItem>
+        <TimerItem>{displayTime(minutes)}M</TimerItem>
+        <TimerItem>{displayTime(seconds)}S</TimerItem>
       </TimerRow>
       <StartButton>Start</StartButton>
       <RecordButton>Record</RecordButton>
