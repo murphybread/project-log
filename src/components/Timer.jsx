@@ -22,13 +22,14 @@ const TimerItem = styled.div`
   width: 100%;
   border: 1px solid black;
   background-color: lightblue;
-  font-size: 3rem;
+  font-size: 2rem;
 `;
 
 const StartButton = styled.button`
   padding: 10px 20px;
   border: 1px solid black;
-  background-color: #afafaf;
+  background-color: ${(props) => (props.toggleState ? "#3c91e6" : "#ffffff")};
+  color: ${(props) => (props.toggleState ? "#1f0318" : "#000000")};
   cursor: pointer;
   margin-bottom: 10px;
   width: 200px;
@@ -55,11 +56,16 @@ export function Timer() {
   };
 
   useEffect(() => {
-    const id = setInterval(() => setTime((prev) => prev + 10), 10);
-    return () => clearInterval(id);
-  }, []);
+    let intervalId;
+    if (isRunning) {
+      intervalId = setInterval(() => {
+        setTime((prev) => prev + 10);
+      }, 10);
+    }
+    return () => clearInterval(intervalId);
+  }, [isRunning]); // isRunning 상태가 변경될 때마다 실행
 
-  const handleTimerRun = () => {
+  const toggleTimer = () => {
     setIsRunning(!isRunning);
   };
 
@@ -78,7 +84,9 @@ export function Timer() {
           {String(centisecondsPart).padStart(2, "0")}
         </TimerItem>
       </TimerRow>
-      <StartButton>Start</StartButton>
+      <StartButton onClick={toggleTimer} toggleState={isRunning}>
+        {isRunning ? "Pause" : "Start"}
+      </StartButton>
       <RecordButton>Record</RecordButton>
     </TimerContainer>
   );
