@@ -19,8 +19,10 @@ const TimerRow = styled.div`
 
 const TimerItem = styled.div`
   padding: 20px;
+  width: 100%;
   border: 1px solid black;
   background-color: lightblue;
+  font-size: 3rem;
 `;
 
 const StartButton = styled.button`
@@ -45,26 +47,36 @@ import React from "react";
 import { useState, useEffect } from "react";
 
 export function Timer() {
+  const [isRunning, setIsRunning] = useState(false);
+  const [time, setTime] = useState(3600000);
+
   const displayTime = (time) => {
     return Math.min(time, 59.99).toFixed(0).padStart(2, "0");
   };
 
-  const [time, setTime] = useState(4000000);
   useEffect(() => {
     const id = setInterval(() => setTime((prev) => prev + 10), 10);
     return () => clearInterval(id);
   }, []);
 
+  const handleTimerRun = () => {
+    setIsRunning(!isRunning);
+  };
+
   const hours = Math.floor(time / (1000 * 60 * 60));
   const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
-  const seconds = Math.floor((time % (1000 * 60)) / 1000);
+  const totalCentiseconds = Math.floor((time % (1000 * 60)) / 10);
+  const secondsPart = Math.floor(totalCentiseconds / 100);
+  const centisecondsPart = totalCentiseconds % 100;
 
   return (
     <TimerContainer>
       <TimerRow>
-        <TimerItem>{displayTime(hours)}H</TimerItem>
-        <TimerItem>{displayTime(minutes)}M</TimerItem>
-        <TimerItem>{displayTime(seconds)}S</TimerItem>
+        <TimerItem>
+          {displayTime(hours)}:{displayTime(minutes)}:
+          {String(secondsPart).padStart(2, "0")}.
+          {String(centisecondsPart).padStart(2, "0")}
+        </TimerItem>
       </TimerRow>
       <StartButton>Start</StartButton>
       <RecordButton>Record</RecordButton>
