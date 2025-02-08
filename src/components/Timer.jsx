@@ -47,9 +47,9 @@ const RecordButton = styled.button`
 import React from "react";
 import { useState, useEffect } from "react";
 
-export function Timer() {
+export function Timer({ initialTime = 0 }) {
   const [isRunning, setIsRunning] = useState(false);
-  const [time, setTime] = useState(3600000);
+  const [time, setTime] = useState(initialTime);
 
   const displayTime = (time) => {
     return Math.min(time, 59.99).toFixed(0).padStart(2, "0");
