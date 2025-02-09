@@ -98,6 +98,9 @@ UI UX
 - ProjectContainer
   - 프로젝트 표시 용도 컨테이너
   - {child}CommitsContainer
+- CommitContainer
+  - 프로젝트의 커밋 포시 용도 커네이너
+  - {projectId} 를 props로 받음
 - TabButton
   - 해당 프로젝트 설정 시 클릭하는 버튼
 - TimerContainer
