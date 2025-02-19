@@ -17,6 +17,13 @@ const TimerRow = styled.div`
   width: 100%;
 `;
 
+const ButtonRow = styled.div`
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  width: 100%;
+`;
+
 const TimerItem = styled.div`
   padding: 20px;
   width: 100%;
@@ -35,13 +42,21 @@ const StartButton = styled.button`
   width: 200px;
 `;
 
+const ResetButton = styled.button`
+  padding: 10px 20px;
+  border: 1px solid black;
+  background-color: ${(props) => (props.toggleState ? "#3c91e6" : "#ffffff")};
+  color: ${(props) => (props.toggleState ? "#1f0318" : "#000000")};
+  cursor: pointer;
+  margin-bottom: 10px;
+  width: 200px;
+`;
+
 const RecordButton = styled.button`
-  padding: 10px;
   border: 1px solid black;
   border-radius: 10px;
   background-color: #e7e7e7;
   cursor: pointer;
-  align-self: end;
 `;
 
 import React from "react";
@@ -68,6 +83,9 @@ export function Timer({ initialTime = 0 }) {
   const toggleTimer = () => {
     setIsRunning(!isRunning);
   };
+  const resetTimer = () => {
+    setTime(0);
+  };
 
   const hours = Math.floor(time / (1000 * 60 * 60));
   const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
@@ -84,10 +102,15 @@ export function Timer({ initialTime = 0 }) {
           {String(centisecondsPart).padStart(2, "0")}
         </TimerItem>
       </TimerRow>
-      <StartButton onClick={toggleTimer} toggleState={isRunning}>
-        {isRunning ? "Pause" : "Start"}
-      </StartButton>
-      <RecordButton>Record</RecordButton>
+      <ButtonRow>
+        <StartButton onClick={toggleTimer} toggleState={isRunning}>
+          {isRunning ? "Pause" : "Start"}
+        </StartButton>
+        <ResetButton onClick={resetTimer}> Reset </ResetButton>
+      </ButtonRow>
+      <ButtonRow>
+        <RecordButton>Record</RecordButton>
+      </ButtonRow>
     </TimerContainer>
   );
 }
