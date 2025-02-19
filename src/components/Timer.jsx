@@ -6,8 +6,9 @@ const TimerContainer = styled.div`
   justify-content: center;
   flex-direction: column;
   align-items: center;
-  height: 200px;
+  height: 350px;
   border: 1px solid black;
+  position: relative;
 `;
 
 const TimerRow = styled.div`
@@ -45,11 +46,20 @@ const StartButton = styled.button`
 const ResetButton = styled.button`
   padding: 10px 20px;
   border: 1px solid black;
-  background-color: ${(props) => (props.toggleState ? "#3c91e6" : "#ffffff")};
+  background-color:  "#ffffff"
   color: ${(props) => (props.toggleState ? "#1f0318" : "#000000")};
   cursor: pointer;
   margin-bottom: 10px;
   width: 200px;
+
+  
+
+  &:active {
+    background-color: #2a9d8f;
+    color: #1f0318;
+    transition: background-color 0.9s ease, color 0.2s ease;
+    
+  }
 `;
 
 const RecordButton = styled.button`
@@ -57,6 +67,9 @@ const RecordButton = styled.button`
   border-radius: 10px;
   background-color: #e7e7e7;
   cursor: pointer;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
 `;
 
 import React from "react";
@@ -107,8 +120,6 @@ export function Timer({ initialTime = 0 }) {
           {isRunning ? "Pause" : "Start"}
         </StartButton>
         <ResetButton onClick={resetTimer}> Reset </ResetButton>
-      </ButtonRow>
-      <ButtonRow>
         <RecordButton>Record</RecordButton>
       </ButtonRow>
     </TimerContainer>
