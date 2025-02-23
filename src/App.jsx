@@ -5,13 +5,14 @@ import "./App.css";
 import { TabButton } from "./components/TabButton.jsx";
 import { ProjectContainer } from "@components/ProjectContainer.jsx";
 import { Timer } from "@components/Timer.jsx";
-
+import { SideNavigation } from "@components/SideNavigation.jsx";
 function App() {
   const [count, setCount] = useState(0);
 
   return (
     <>
-      <TabButton name="Home" />
+      <SideNavigation />
+      {/* <TabButton name="Home" />
       <TabButton name="Page1" />
       <button
         className="
@@ -33,7 +34,7 @@ function App() {
         Hover Me
       </button>
       <ProjectContainer />
-      <Timer />
+      <Timer /> */}
     </>
   );
 }

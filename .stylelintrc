@@ -1,0 +1,6 @@
+{
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "order/properties-order": ["display", "flex-direction", "position", "width", "height"]
+  }
+}
