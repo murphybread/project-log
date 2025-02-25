@@ -1,6 +1,7 @@
 {
   "plugins": ["stylelint-order"],
   "rules": {
-    "order/properties-order": ["display", "flex-direction", "position", "width", "height"]
+    "order/properties-order": ["display", "flex-direction", "position", "width", "height", "border", "border-radius"],
+    "declaration-empty-line-before": "never"
   }
 }
