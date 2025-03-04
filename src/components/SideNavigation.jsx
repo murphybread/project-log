@@ -11,7 +11,7 @@ export function SideNavigation() {
       </div>
 
       <h3>Side Navigation item</h3>
-      <div className="side-navigation-items">아이템</div>
+      <div className="side-navigation-items">프로젝트설명</div>
     </div>
   );
 }
