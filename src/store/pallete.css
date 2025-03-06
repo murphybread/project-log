@@ -1,0 +1,47 @@
+/* src/styles/palette.css */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* 버튼 스타일 */
+.btn-base {
+  @apply font-medium rounded transition-colors focus:outline-none w-max h-max;
+}
+.btn-primary {
+  @apply bg-blue-600 hover:bg-blue-700 text-white;
+}
+.btn-secondary {
+  @apply bg-gray-500 hover:bg-gray-600 text-white;
+}
+.btn-success {
+  @apply bg-green-500 hover:bg-green-600 text-white;
+}
+.btn-warning {
+  @apply bg-yellow-500 hover:bg-yellow-600 text-white;
+}
+.btn-error {
+  @apply bg-red-500 hover:bg-red-600 text-white;
+}
+.btn-outline {
+  @apply border border-blue-600 text-blue-600 hover:bg-blue-50;
+}
+.btn-sm {
+  @apply px-2 py-1 text-sm;
+}
+.btn-md {
+  @apply px-4 py-2;
+}
+.btn-lg {
+  @apply px-6 py-3 text-lg;
+}
+
+/* 칩 스타일 */
+.chip-default {
+  @apply bg-gray-100 text-gray-800 hover:bg-gray-200;
+}
+.chip-primary {
+  @apply bg-blue-100 text-blue-800 hover:bg-blue-200;
+}
+.chip-success {
+  @apply bg-green-100 text-green-800 hover:bg-green-200;
+}
