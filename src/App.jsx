@@ -9,7 +9,8 @@ import { SideNavigation } from "@components/SideNavigation.jsx";
 import { MuiComponents } from "@components/MuiComponents.jsx";
 
 import { SideNavigationMui } from "@components/SideNavigationMui.jsx";
-
+import Card from "@ui/Card.jsx";
+import Button from "@ui/Button";
 function App() {
   const [count, setCount] = useState(0);
 
@@ -17,7 +18,9 @@ function App() {
     <>
       {/* <MuiComponents /> */}
       <main style={{ display: "flex", gap: 30 }}>
-        <SideNavigation />
+        <Button> AAA</Button>
+        <Card> CCC </Card>
+        <SideNavigation /> */
         <SideNavigationMui />
       </main>
     </>

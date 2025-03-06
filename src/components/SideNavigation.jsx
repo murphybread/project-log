@@ -1,11 +1,9 @@
 // SideNavigation.jsx
 import "./SideNavigation.css";
-import Button from "@ui/Button";
 
 export function SideNavigation() {
   return (
     <>
-      <Button className="inline-block"></Button>
       <div className="side-navigation-container">
         <div className="side-navigation-title">Side Navigation Title</div>
         <div className="side-navigation-title-items-container">
