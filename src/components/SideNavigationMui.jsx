@@ -2,8 +2,10 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Paper from "@mui/material/Paper";
 import Chip from "@mui/material/Chip";
+import useTheme from "../store/store";
 
 export function SideNavigationMui() {
+  const theme = useTheme((state) => state);
   return (
     <Paper
       sx={{
@@ -53,9 +55,9 @@ export function SideNavigationMui() {
           최근 커밋 날짜: "YYYY-MM-DD"
         </Typography>
       </Box>
-
+      <Chip label={theme.projectStatuses.success.label} color="error" />
       <Typography color="textPrimary" sx={{ fontSize: "0.8rem" }}>
-        <Chip label="success" color="error" />- 프로젝트 소개 - 프로젝트 상태 - 주요 기능 - 참여자 - 태그
+        - 프로젝트 소개 - 프로젝트 상태 - 주요 기능 - 참여자 - 태그
       </Typography>
     </Paper>
   );
