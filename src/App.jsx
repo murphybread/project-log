@@ -10,7 +10,11 @@ import { MuiComponents } from "@components/MuiComponents.jsx";
 
 import { SideNavigationMui } from "@components/SideNavigationMui.jsx";
 import Card from "@ui/Card.jsx";
+import CardHeader from "@ui/CardHeader.jsx";
+import CardContent from "@ui/CardContent.jsx";
 import Button from "@ui/Button";
+import Divider from "@ui/Divider.jsx";
+
 function App() {
   const [count, setCount] = useState(0);
 
@@ -18,10 +22,15 @@ function App() {
     <>
       {/* <MuiComponents /> */}
       <main style={{ display: "flex", gap: 30 }}>
-        <Button> AAA</Button>
-        <Card> CCC </Card>
-        <SideNavigation /> */
-        <SideNavigationMui />
+        <Button> Button Default</Button>
+        <Card variant="outlined" elevation={4} className="px-0">
+          <CardHeader title="타이틀" subtitle="subtitle" />
+          <Divider />
+          <CardContent>카드 컨텐츠</CardContent>
+        </Card>
+
+        {/* <SideNavigation />  */}
+        {/* <SideNavigationMui /> */}
       </main>
     </>
   );

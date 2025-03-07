@@ -4,33 +4,33 @@ import { useTheme } from "@store/themeStore";
 const Card = ({
   children,
   display = "inline-block",
-  ellaboration = 2,
+  elevation = 2,
   fontSize = "md",
+  variant = "shadow",
   className = "",
 
   ...props
 }) => {
-  const buttonText = children || "Card";
+  const cardText = children;
 
   const baseClasses = useTheme((state) => state.getComponentStyle("card")["base"]);
   const basePseudoClasses = useTheme((state) => state.getComponentStyle("card")["basePseudo"]);
-  const ellaborationClasses = useTheme((state) => state.getComponentStyle("card")[ellaboration]);
-
-  const sizeClasses = useTheme((state) => state.getComponentStyle("button")[fontSize]);
+  const elevationClasses = useTheme((state) => state.getComponentStyle("card")[elevation]);
+  const variantClasses = useTheme((state) => state.getComponentStyle("card")[variant]);
 
   return (
     <div
       className={`
         ${baseClasses}
         ${basePseudoClasses}
+        ${variantClasses}
         ${display}
-        ${ellaborationClasses}
-        ${sizeClasses}
-        ${className}
+        ${elevationClasses}
+        ${className}  
       `}
       {...props}
     >
-      {buttonText}
+      {cardText}
     </div>
   );
 };

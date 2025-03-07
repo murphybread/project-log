@@ -26,12 +26,37 @@ export const useTheme = create((set, get) => ({
         error: "bg-red-100 text-red-800 hover:bg-red-200",
       },
       card: {
-        base: "bg-white text-black shadow-lg rounded-xl p-4 w-sm h-64",
+        base: "bg-white text-black shadow-lg rounded-xl w-md h-64",
         basePseudo: "transition duration-300 hover:-translate-y-2 hover:shadow-md",
+        outlined: "border-gray-200 border-2",
         1: "shadow-md",
         2: "shadow-lg",
         3: "shadow-xl",
         4: "shadow-2xl",
+      },
+      cardHeader: {
+        base: "px-4 py-3 flex items-center",
+        title: "text-lg font-semibold text-gray-800 mb-1 ",
+        subtitle: "text-sm text-gray-500",
+      },
+      cardContent: {
+        base: "px-4 py-3 text-black text-xs",
+        md: "px-4 py-2",
+      },
+      cardMedia: {
+        base: "px-4 py-3 text-black text-xs",
+        image: 
+      },
+      divider: {
+        base: "border-gray-900",
+        horizontal: "w-full border-t",
+        vertical: "h-full border-l",
+        thin: "border-[0.5px]",
+        medium: "border-[1px]",
+        thick: "border-[2px]",
+        sm: "my-1",
+        md: "my-2",
+        lg: "my-4",
       },
     },
     dark: {
