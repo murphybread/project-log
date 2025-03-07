@@ -57,6 +57,32 @@ export const useTheme = create((set, get) => ({
         md: "my-2",
         lg: "my-4",
       },
+      typography: {
+        base: "text-gray-900",
+
+        variant_h1: "text-5xl font-light mb-2",
+        variant_h2: "text-4xl font-light mb-2",
+        variant_h3: "text-3xl font-normal mb-2",
+        variant_h4: "text-2xl font-normal mb-1",
+        variant_h5: "text-xl font-medium mb-1",
+        variant_h6: "text-lg font-medium mb-1",
+        variant_subtitle1: "text-base font-normal",
+        variant_subtitle2: "text-sm font-medium",
+        variant_body1: "text-base font-normal",
+        variant_body2: "text-sm font-normal",
+        variant_button: "text-sm font-medium uppercase",
+        variant_caption: "text-xs font-normal",
+
+        color_primary: "bg-blue-600 text-white",
+        color_secondary: "bg-gray-500 text-white",
+        color_success: "bg-green-500 text-white",
+        color_warning: "bg-yellow-500 text-white",
+        color_error: "bg-red-500 text-white",
+
+        align_left: "text-left",
+        align_center: "text-center",
+        align_right: "text-right",
+      },
     },
     dark: {
       button: {
@@ -86,9 +112,13 @@ export const useTheme = create((set, get) => ({
   setMode: (mode) => set({ mode }),
 
   // 스타일 속성 가져오기 (내부적으로 현재 모드 사용)
-  getComponentStyle: (component) => {
+  getComponentStyle: (component, property = null) => {
     const state = get();
 
-    return state.styles[state.mode][component];
+    try {
+      return state.styles[state.mode][component][property];
+    } catch (e) {
+      return "";
+    }
   },
 }));
