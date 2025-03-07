@@ -1,15 +1,13 @@
 import React from "react";
 import { useTheme } from "@store/themeStore";
 
-const CardMedia = ({ type = "iamge", src = "", alt = "", className = "", ...props }) => {
-  const baseClasses = useTheme((state) => state.getComponentStyle("cardHMedia")["base"]);
-  const titleClasses = useTheme((state) => state.getComponentStyle("cardHeader")["title"]);
-  const subtitleClasses = useTheme((state) => state.getComponentStyle("cardHeader")["subtitle"]);
+const CardMedia = ({ type = "iamge", src = "https://images.unsplash.com/photo-1501785888041-af3ef285b470", alt = "", className = "", ...props }) => {
+  const baseClasses = useTheme((state) => state.getComponentStyle("cardMedia")["base"]);
 
   let mediaContent = null;
   switch (type) {
     case "image":
-      mediaContent = <img src={src} alt={alt} />;
+      mediaContent = <img src={src} alt={alt} className={`${baseClasses} ${className} `} {...props} />;
 
       break;
     case "video":
@@ -27,17 +25,7 @@ const CardMedia = ({ type = "iamge", src = "", alt = "", className = "", ...prop
       break;
   }
 
-  return (
-    <div
-      className={`
-        ${baseClasses}
-        ${className}
-      `}
-      {...props}
-    >
-      {mediaContent}
-    </div>
-  );
+  return <>{mediaContent}</>;
 };
 
 export default CardMedia;
