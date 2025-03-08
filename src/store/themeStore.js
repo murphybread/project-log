@@ -58,7 +58,7 @@ export const useTheme = create((set, get) => ({
         lg: "my-4",
       },
       typography: {
-        base: "text-gray-900",
+        base: "text-gray-900 text-base font-normal",
 
         variant_h1: "text-5xl font-light mb-2",
         variant_h2: "text-4xl font-light mb-2",
@@ -73,6 +73,7 @@ export const useTheme = create((set, get) => ({
         variant_button: "text-sm font-medium uppercase",
         variant_caption: "text-xs font-normal",
 
+        color_default: "text-gray-900",
         color_primary: "bg-blue-600 text-white",
         color_secondary: "bg-gray-500 text-white",
         color_success: "bg-green-500 text-white",
@@ -82,6 +83,17 @@ export const useTheme = create((set, get) => ({
         align_left: "text-left",
         align_center: "text-center",
         align_right: "text-right",
+
+        weight_light: "font-light",
+        weight_regular: "font-normal",
+        weight_medium: "font-medium",
+        weight_semibold: "font-semibold",
+        weight_bold: "font-bold",
+
+        whitespace_normal: "whitespace-normal",
+        whitespace_nowrap: "whitespace-nowrap",
+        whitespace_pre: "whitespace-pre",
+        "whitespace_pre-wrap": "whitespace-pre-wrap",
       },
     },
     dark: {
@@ -116,8 +128,24 @@ export const useTheme = create((set, get) => ({
     const state = get();
 
     try {
-      return state.styles[state.mode][component][property];
-    } catch (e) {
+      const componentStyles = state.styles[state.mode][component];
+
+      if (!componentStyles) {
+        console.warn(`Component "${component}" not found in theme`);
+        return "";
+      }
+
+      const propertyValue = componentStyles[property];
+
+      if (propertyValue === undefined) {
+        console.warn(`Property "${property}" not found in ${component} component`);
+        return "";
+      }
+
+      return propertyValue;
+    } catch (error) {
+      console.error("Error in getComponentStyle:", error);
+      console.log(error.stack);
       return "";
     }
   },
