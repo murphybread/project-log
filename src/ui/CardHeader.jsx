@@ -20,7 +20,6 @@ const CardHeader = ({ children, title, subtitle, className = "", ...props }) => 
 
           {subtitle && <p className={subtitleClasses}>{subtitle}</p>}
         </div>
-        {action && <div>{action}</div>}
       </div>
     </div>
   );

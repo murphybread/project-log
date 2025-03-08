@@ -16,9 +16,9 @@ export const useTheme = create((set, get) => ({
         variant_error: "bg-red-500 hover:bg-red-600 text-white",
         variant_outline: "border border-blue-600 text-blue-600 hover:bg-blue-50",
 
-        fontsize_sm: "px-2 py-1 text-sm",
-        fontsize_md: "px-4 py-2",
-        fontsize_lg: "px-6 py-3 text-lg",
+        fontSize__sm: "px-2 py-1 text-sm",
+        fontSize__md: "px-4 py-2",
+        fontSize__lg: "px-6 py-3 text-lg",
       },
       chip: {
         base: "bg-gray-100 text-gray-800 hover:bg-gray-200",
@@ -28,10 +28,12 @@ export const useTheme = create((set, get) => ({
         error: "bg-red-100 text-red-800 hover:bg-red-200",
       },
       card: {
-        base: "bg-white text-black shadow-lg rounded-xl w-md h-64 overflow-hidden",
+        base: "bg-white text-black shadow-lg rounded-xl w-40 h-32 overflow-hidden",
         baseEffect: "transition duration-300 hover:-translate-y-2 hover:shadow-md",
 
-        variant_outlined: "border border-slate-400",
+        variant_outlined: "border border-slate-700",
+        variant_default: "bg-white",
+        variant_filled: "bg-slate-100",
 
         display_block: "block",
         display_flex: "flex",
@@ -40,19 +42,27 @@ export const useTheme = create((set, get) => ({
         "display_inline-block": "inline-block",
 
         elevation_1: "shadow-md",
-        elevation_2: "shadow-lg",
-        elevation_3: "shadow-xl",
-        elevation_4: "shadow-2xl",
+        elevation_2: "shadow-slate-500",
+        elevation_3: "shadow-slate-700",
+        elevation_4: "shadow-slate-900",
 
-        fontsize_sm: "text-sm",
-        fontsize_md: "text-md",
-        fontsize_lg: "text-lg",
-        fontsize_xl: "text-xl",
+        fontSize_sm: "text-sm",
+        fontSize_md: "text-md",
+        fontSize_lg: "text-lg",
+        fontSize_xl: "text-xl",
+
+        height_xs: "h-16",
+        height_sm: "h-32",
+        height_md: "h-64",
+        height_lg: "h-96",
+        height_xl: "h-128",
+        height_auto: "h-auto",
+        height_full: "h-full",
       },
       cardHeader: {
         base: "px-4 py-3 flex items-center",
-        title: "text-lg font-semibold text-gray-800 mb-1 ",
-        subtitle: "text-sm text-gray-500",
+        title: "text-lg font-semibold text-gray-800 mb-1 break-words ",
+        subtitle: "text-sm text-gray-500 break-words",
       },
       cardContent: {
         base: "text-black text-xs",
