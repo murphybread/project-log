@@ -24,8 +24,6 @@ function App() {
     <>
       {/* <MuiComponents /> */}
       <main style={{ display: "flex", gap: 30 }}>
-        <Typography>tytypho</Typography>
-
         {/* <Button> Button Default</Button>
         <Card variant="outlined" elevation={4} className="px-0">
           <CardHeader title="타이틀" subtitle="subtitle" />
@@ -33,9 +31,10 @@ function App() {
           <CardContent>카드 컨텐츠</CardContent>
           <CardMedia type="image" alt="react logo" />
         </Card> */}
-        {/* <SideNavigation />  */}
-        {/* <SideNavigationMui /> */}
-        <Button> 지원하기 </Button>
+        <h1>aaa</h1>
+        <SideNavigation />
+
+        <SideNavigationMui />
       </main>
     </>
   );
