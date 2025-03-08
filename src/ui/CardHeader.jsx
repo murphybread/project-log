@@ -1,10 +1,10 @@
 import React from "react";
 import { useTheme } from "@store/themeStore";
 
-const CardHeader = ({ children, title, subtitle, action, className = "", ...props }) => {
-  const baseClasses = useTheme((state) => state.getComponentStyle("cardHeader")["base"]);
-  const titleClasses = useTheme((state) => state.getComponentStyle("cardHeader")["title"]);
-  const subtitleClasses = useTheme((state) => state.getComponentStyle("cardHeader")["subtitle"]);
+const CardHeader = ({ children, title, subtitle, className = "", ...props }) => {
+  const baseClasses = useTheme((state) => state.getComponentStyle("cardHeader", "base"));
+  const titleClasses = useTheme((state) => state.getComponentStyle("cardHeader", "title"));
+  const subtitleClasses = useTheme((state) => state.getComponentStyle("cardHeader", "subtitle"));
 
   return (
     <div

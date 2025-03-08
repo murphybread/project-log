@@ -7,16 +7,18 @@ export const useTheme = create((set, get) => ({
   styles: {
     light: {
       button: {
-        base: "font-medium rounded transition-colors focus:outline-none w-max h-max",
-        primary: "bg-blue-600 hover:bg-blue-700 text-white",
-        secondary: "bg-gray-500 hover:bg-gray-600 text-white",
-        success: "bg-green-500 hover:bg-green-600 text-white",
-        warning: "bg-yellow-500 hover:bg-yellow-600 text-white",
-        error: "bg-red-500 hover:bg-red-600 text-white",
-        outline: "border border-blue-600 text-blue-600 hover:bg-blue-50",
-        sm: "px-2 py-1 text-sm",
-        md: "px-4 py-2",
-        lg: "px-6 py-3 text-lg",
+        base: "font-medium rounded-md transition-colors focus:outline-none w-max h-max",
+
+        variant_primary: "bg-blue-600 hover:bg-blue-700 text-white",
+        variant_secondary: "bg-gray-500 hover:bg-gray-600 text-white",
+        variant_success: "bg-green-500 hover:bg-green-600 text-white",
+        variant_warning: "bg-yellow-500 hover:bg-yellow-600 text-white",
+        variant_error: "bg-red-500 hover:bg-red-600 text-white",
+        variant_outline: "border border-blue-600 text-blue-600 hover:bg-blue-50",
+
+        fontsize_sm: "px-2 py-1 text-sm",
+        fontsize_md: "px-4 py-2",
+        fontsize_lg: "px-6 py-3 text-lg",
       },
       chip: {
         base: "bg-gray-100 text-gray-800 hover:bg-gray-200",
@@ -27,12 +29,25 @@ export const useTheme = create((set, get) => ({
       },
       card: {
         base: "bg-white text-black shadow-lg rounded-xl w-md h-64 overflow-hidden",
-        basePseudo: "transition duration-300 hover:-translate-y-2 hover:shadow-md",
-        outlined: "outline outline-slate-400",
-        1: "shadow-md",
-        2: "shadow-lg",
-        3: "shadow-xl",
-        4: "shadow-2xl",
+        baseEffect: "transition duration-300 hover:-translate-y-2 hover:shadow-md",
+
+        variant_outlined: "border border-slate-400",
+
+        display_block: "block",
+        display_flex: "flex",
+        display_grid: "grid",
+        display_inline: "inline",
+        "display_inline-block": "inline-block",
+
+        elevation_1: "shadow-md",
+        elevation_2: "shadow-lg",
+        elevation_3: "shadow-xl",
+        elevation_4: "shadow-2xl",
+
+        fontsize_sm: "text-sm",
+        fontsize_md: "text-md",
+        fontsize_lg: "text-lg",
+        fontsize_xl: "text-xl",
       },
       cardHeader: {
         base: "px-4 py-3 flex items-center",
@@ -41,21 +56,22 @@ export const useTheme = create((set, get) => ({
       },
       cardContent: {
         base: "text-black text-xs",
-        md: "px-4 pt-2",
+        spacing_md: "px-4 pt-2",
+        disable_spacing: "px-0 py-0",
       },
       cardMedia: {
         base: "w-full max-w-full max-h-full  object-contain",
       },
       divider: {
         base: "border-gray-900",
-        horizontal: "w-full border-t",
-        vertical: "h-full border-l",
-        thin: "border-[0.5px]",
-        medium: "border-[1px]",
-        thick: "border-[2px]",
-        sm: "my-1",
-        md: "my-2",
-        lg: "my-4",
+        variant_horizontal: "w-full border-t",
+        variant_vertical: "h-full border-l",
+        thickness_thin: "border-[0.5px]",
+        thickness_medium: "border-[1px]",
+        thickness_thick: "border-[2px]",
+        spacing_sm: "my-1",
+        spacing_md: "my-2",
+        spacing_lg: "my-4",
       },
       typography: {
         base: "text-gray-900 text-base font-normal",
@@ -94,6 +110,44 @@ export const useTheme = create((set, get) => ({
         whitespace_nowrap: "whitespace-nowrap",
         whitespace_pre: "whitespace-pre",
         "whitespace_pre-wrap": "whitespace-pre-wrap",
+      },
+      box: {
+        base: "rounded-md transition-all",
+
+        display_block: "block",
+        display_flex: "flex",
+        display_grid: "grid",
+        display_inline: "inline",
+        "display_inline-block": "inline-block",
+
+        padding_none: "p-0",
+        padding_sm: "p-2",
+        padding_md: "p-4",
+        padding_lg: "p-6",
+
+        margin_none: "m-0",
+        margin_sm: "m-2",
+        margin_md: "m-4",
+        margin_lg: "m-6",
+
+        width_auto: "w-auto",
+        width_full: "w-full",
+        width_half: "w-1/2",
+        width_quarter: "w-1/4",
+
+        height_auto: "h-auto",
+        height_full: "h-full",
+        height_screen: "h-screen",
+        height_fit: "h-fit",
+
+        variant_outlined: "border border-gray-300",
+        variant_filled: "bg-gray-100",
+        variant_elevated: "shadow-md",
+
+        color_default: "bg-white",
+        color_primary: "bg-blue-600",
+        color_secondary: "bg-gray-500",
+        color_transparent: "bg-transparent",
       },
     },
     dark: {

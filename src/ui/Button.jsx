@@ -4,7 +4,7 @@ import { useTheme } from "@store/themeStore";
 const Button = ({
   children,
   variant = "primary",
-  fontSize = "md",
+  fontsize = "md",
   className = "",
   display = "inline-block",
 
@@ -12,9 +12,9 @@ const Button = ({
 }) => {
   const buttonText = children || "Button";
 
-  const baseClasses = useTheme((state) => state.getComponentStyle("button")["base"]);
-  const variantClasses = useTheme((state) => state.getComponentStyle("button")[variant]);
-  const sizeClasses = useTheme((state) => state.getComponentStyle("button")[fontSize]);
+  const baseClasses = useTheme((state) => state.getComponentStyle("button", "base"));
+  const variantClasses = useTheme((state) => state.getComponentStyle("button", `variant_${variant}`));
+  const sizeClasses = useTheme((state) => state.getComponentStyle("button", `fontsize_${fontsize}`));
 
   return (
     <button

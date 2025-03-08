@@ -9,10 +9,10 @@ const Divider = ({
 
   ...props
 }) => {
-  const baseClasses = useTheme((state) => state.getComponentStyle("divider")["base"]);
-  const variantClasses = useTheme((state) => state.getComponentStyle("divider")[variant]);
-  const thicknessClasses = useTheme((state) => state.getComponentStyle("divider")[thickness]);
-  const spacingClasses = useTheme((state) => state.getComponentStyle("divider")[spacing]);
+  const baseClasses = useTheme((state) => state.getComponentStyle("divider", "base"));
+  const variantClasses = useTheme((state) => state.getComponentStyle("divider", `variant_${variant}`));
+  const thicknessClasses = useTheme((state) => state.getComponentStyle("divider", `thickness_${thickness}`));
+  const spacingClasses = useTheme((state) => state.getComponentStyle("divider", `spacing_${spacing}`));
 
   return (
     <hr

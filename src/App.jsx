@@ -35,6 +35,7 @@ function App() {
         </Card> */}
         {/* <SideNavigation />  */}
         {/* <SideNavigationMui /> */}
+        <Button> 지원하기 </Button>
       </main>
     </>
   );
