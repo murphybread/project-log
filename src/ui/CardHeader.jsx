@@ -1,8 +1,10 @@
 import React from "react";
 import { useTheme } from "@store/themeStore";
 
-const CardHeader = ({ children, title, subtitle, className = "", ...props }) => {
+const CardHeader = ({ children, variant = "default", title, subtitle, className = "", ...props }) => {
   const baseClasses = useTheme((state) => state.getComponentStyle("cardHeader", "base"));
+  const variantClasses = useTheme((state) => state.getComponentStyle("cardHeader", `variant_${variant}`));
+
   const titleClasses = useTheme((state) => state.getComponentStyle("cardHeader", "title"));
   const subtitleClasses = useTheme((state) => state.getComponentStyle("cardHeader", "subtitle"));
 
@@ -10,6 +12,7 @@ const CardHeader = ({ children, title, subtitle, className = "", ...props }) => 
     <div
       className={`
         ${baseClasses}
+        ${variantClasses}
         ${className}
       `}
       {...props}

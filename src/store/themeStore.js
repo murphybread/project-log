@@ -28,7 +28,7 @@ export const useTheme = create((set, get) => ({
         error: "bg-red-100 text-red-800 hover:bg-red-200",
       },
       card: {
-        base: "bg-white text-black shadow-lg rounded-xl w-40 h-32 overflow-hidden",
+        base: "bg-white text-black shadow-lg rounded-xl max-w-80 h-32 overflow-hidden",
         baseEffect: "transition duration-300 hover:-translate-y-2 hover:shadow-md",
 
         variant_outlined: "border border-slate-700",
@@ -63,6 +63,8 @@ export const useTheme = create((set, get) => ({
         base: "px-4 py-3 flex items-center",
         title: "text-lg font-semibold text-gray-800 mb-1 break-words ",
         subtitle: "text-sm text-gray-500 break-words",
+        variant_default: "bg-white",
+        variant_filled: "bg-blue-300",
       },
       cardContent: {
         base: "text-black text-xs",
@@ -170,11 +172,23 @@ export const useTheme = create((set, get) => ({
         outline: "border border-blue-400 text-blue-400 hover:bg-blue-900 hover:bg-opacity-30",
       },
       chip: {
-        default: "bg-gray-700 text-gray-300 hover:bg-gray-600",
-        primary: "bg-blue-900 bg-opacity-30 text-blue-300 hover:bg-opacity-40",
-        success: "bg-green-900 bg-opacity-30 text-green-300 hover:bg-opacity-40",
-        warning: "bg-yellow-900 bg-opacity-30 text-yellow-300 hover:bg-opacity-40",
-        error: "bg-red-900 bg-opacity-30 text-red-300 hover:bg-opacity-40",
+        base: "inline-flex items-center rounded-full transition-colors rounded-full px-3 py-1 text-sm font-medium",
+
+        variant_default: "bg-gray-100 text-gray-800 hover:bg-gray-200",
+        variant_primary: "bg-blue-100 text-blue-800 hover:bg-blue-200",
+        variant_success: "bg-green-100 text-green-800 hover:bg-green-200",
+        variant_warning: "bg-yellow-100 text-yellow-800 hover:bg-yellow-200",
+        variant_error: "bg-red-100 text-red-800 hover:bg-red-200",
+
+        size_sm: "px-2 py-0.5 text-xs",
+        size_md: "px-3 py-1 text-sm",
+        size_lg: "px-4 py-1.5 text-base",
+
+        outlined_default: "border border-gray-300 bg-transparent text-gray-800",
+        outlined_primary: "border border-blue-300 bg-transparent text-blue-800",
+        outlined_success: "border border-green-300 bg-transparent text-green-800",
+        outlined_warning: "border border-yellow-300 bg-transparent text-yellow-800",
+        outlined_error: "border border-red-300 bg-transparent text-red-800",
       },
     },
   },
