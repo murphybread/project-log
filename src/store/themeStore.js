@@ -20,13 +20,6 @@ export const useTheme = create((set, get) => ({
         fontSize__md: "px-4 py-2",
         fontSize__lg: "px-6 py-3 text-lg",
       },
-      chip: {
-        base: "bg-gray-100 text-gray-800 hover:bg-gray-200",
-        primary: "bg-blue-100 text-blue-800 hover:bg-blue-200",
-        success: "bg-green-100 text-green-800 hover:bg-green-200",
-        warning: "bg-yellow-100 text-yellow-800 hover:bg-yellow-200",
-        error: "bg-red-100 text-red-800 hover:bg-red-200",
-      },
       card: {
         base: "bg-white text-black shadow-lg rounded-xl max-w-80 h-32 overflow-hidden",
         baseEffect: "transition duration-300 hover:-translate-y-2 hover:shadow-md",
@@ -160,6 +153,19 @@ export const useTheme = create((set, get) => ({
         color_primary: "bg-blue-600",
         color_secondary: "bg-gray-500",
         color_transparent: "bg-transparent",
+      },
+      chip: {
+        base: "inline-flex items-center rounded-full rounded-full px-3 py-1 text-sm font-medium",
+
+        variant_default: "bg-gray-100 text-gray-800 hover:bg-gray-200",
+        variant_primary: "bg-blue-400 text-blue-800 hover:bg-blue-500",
+        variant_success: "bg-green-100 text-green-800 hover:bg-green-200",
+        variant_warning: "bg-yellow-100 text-yellow-800 hover:bg-yellow-200",
+        variant_error: "bg-red-100 text-red-800 hover:bg-red-200",
+
+        size_sm: "px-2 py-0.5 text-xs",
+        size_md: "px-3 py-1 text-sm",
+        size_lg: "px-4 py-1.5 text-base",
       },
     },
     dark: {
