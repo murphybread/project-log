@@ -7,7 +7,7 @@ const Card = ({
   elevation = 2,
   fontSize = "md",
   variant = "default",
-  height = "sm",
+  height = "full",
   className = "",
 
   ...props

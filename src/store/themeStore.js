@@ -21,7 +21,7 @@ export const useTheme = create((set, get) => ({
         fontSize__lg: "px-6 py-3 text-lg",
       },
       card: {
-        base: "bg-white text-black shadow-lg rounded-xl max-w-80 h-32 overflow-hidden",
+        base: "bg-white text-black shadow-lg rounded-xl max-w-80 max-h-full overflow-hidden",
         baseEffect: "transition duration-300 hover:-translate-y-2 hover:shadow-md",
 
         variant_outlined: "border border-slate-700",
@@ -49,7 +49,6 @@ export const useTheme = create((set, get) => ({
         height_md: "h-64",
         height_lg: "h-96",
         height_xl: "h-128",
-        height_auto: "h-auto",
         height_full: "h-full",
       },
       cardHeader: {
@@ -145,7 +144,7 @@ export const useTheme = create((set, get) => ({
         height_screen: "h-screen",
         height_fit: "h-fit",
 
-        variant_outlined: "border border-gray-300",
+        variant_outlined: "border border-gray-400",
         variant_filled: "bg-gray-100",
         variant_elevated: "shadow-md",
 
@@ -155,17 +154,50 @@ export const useTheme = create((set, get) => ({
         color_transparent: "bg-transparent",
       },
       chip: {
-        base: "inline-flex items-center rounded-full rounded-full px-3 py-1 text-sm font-medium",
+        base: "inline-flex items-center rounded-full rounded-full px-1 py-1 text-xs font-extrabold",
 
-        variant_default: "bg-gray-100 text-gray-800 hover:bg-gray-200",
+        variant_default: "bg-gray-400 text-gray-800 hover:bg-gray-200",
         variant_primary: "bg-blue-400 text-blue-800 hover:bg-blue-500",
-        variant_success: "bg-green-100 text-green-800 hover:bg-green-200",
-        variant_warning: "bg-yellow-100 text-yellow-800 hover:bg-yellow-200",
-        variant_error: "bg-red-100 text-red-800 hover:bg-red-200",
+        variant_success: "bg-green-400 text-green-800 hover:bg-green-200",
+        variant_warning: "bg-yellow-400 text-yellow-800 hover:bg-yellow-200",
+        variant_error: "bg-red-400 text-red-800 hover:bg-red-200",
 
-        size_sm: "px-2 py-0.5 text-xs",
+        size_sm: "px-0 py-0.5 text-xs",
         size_md: "px-3 py-1 text-sm",
         size_lg: "px-4 py-1.5 text-base",
+      },
+
+      list: {
+        base: "list-disc list-outside ml-2  p-0 w-full",
+        variant_default: "bg-white rounded",
+        variant_outlined: "bg-white border border-gray-200 rounded",
+        variant_elevation: "bg-white shadow-md rounded",
+
+        spacing_none: "space-y-0",
+        spacing_sm: "space-y-1",
+        spacing_md: "space-y-2",
+        spacing_lg: "space-y-3",
+
+        padding_none: "p-0",
+        padding_sm: "p-2",
+        padding_md: "p-4",
+        padding_lg: "p-6",
+
+        dividers: "divide-y divide-gray-200",
+        noDividers: "",
+      },
+
+      listItem: {
+        base: "items-center w-full ",
+        normal: "py-2",
+        selected: "bg-blue-50",
+        unselected: "",
+        disabled: "opacity-50 pointer-events-none",
+        enabled: "",
+        clickable: "cursor-pointer hover:bg-gray-50 focus:outline-none focus:bg-gray-100",
+
+        primaryText: "text-sm font-medium text-gray-900",
+        secondaryText: "text-xs text-gray-500 mt-0.5",
       },
     },
     dark: {

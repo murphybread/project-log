@@ -3,10 +3,10 @@ import { useTheme } from "@store/themeStore";
 
 const Box = ({
   children,
-  display = "block",
+  display = "flex",
   padding = "md",
   margin = "none",
-  width = "auto",
+  width = "full",
   height = "fit",
   variant = "outlined",
   color = "default",

@@ -5,11 +5,13 @@ import Box from "@ui/Box";
 import Typography from "@ui/Typography";
 import Chip from "@ui/Chip";
 import XIcon from "@/assets/XIcon";
+import List from "@ui/List";
+import ListItem from "@ui/ListItem";
 
 export function SideNavigation() {
   return (
     <>
-      <Card variant="outlined" height="lg">
+      <Card variant="outlined">
         <CardHeader title="proejctName" subtitle="totalCommit" />
         <Box>
           <Typography> 총 커밋 횟수</Typography>
@@ -23,7 +25,21 @@ export function SideNavigation() {
           <Typography> 참여자</Typography>
           <Typography> 태그</Typography>
         </Box>
-        <Chip variant="primary" label="test" rightIcon={<XIcon />} />
+        <Chip variant="primary" label="프로젝트상태" />
+        <List>
+          <ListItem secondary="첫 번째 항목" />
+          <ListItem secondary="두 번째 항목" />
+          <ListItem secondary="세 번째 항목" />
+        </List>
+        <Box>
+          <Typography> 참여자 목록: A B C D</Typography>
+        </Box>
+        <Box>
+          <Chip size="sm" variant="primary" label="태그1" />
+          <Chip size="sm" variant="success" label="태그2" />
+          <Chip size="sm" variant="error" label="태그3" />
+          <Chip size="sm" variant="warning" label="태그4" />
+        </Box>
       </Card>
       {/* <div className="side-navigation-container">
         <div className="side-navigation-title">Side Navigation Title</div>

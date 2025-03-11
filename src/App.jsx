@@ -33,8 +33,6 @@ function App() {
         </Card> */}
         <h1>aaa</h1>
         <SideNavigation />
-
-        <SideNavigationMui />
       </main>
     </>
   );
