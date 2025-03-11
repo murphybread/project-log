@@ -2,33 +2,69 @@
   "projects": [
     {
       "id": "project-1",
-      "name": "프로젝트명",
-      "description": "프로젝트 설명",
-      "architecture": "프로젝트 아키텍처",
+      "name": "웹 포트폴리오",
+      "description": "개인 포트폴리오 웹사이트 개발",
+      "architecture": "React + Node.js",
       "status": "진행중",
-      "createdAt": "timestamp",
-      "modifiedAt": "timestamp",
-      "totalTime": "누적 작업시간",
+      "createdAt": "2023-01-15T09:00:00Z",
+      "modifiedAt": "2023-01-20T15:30:00Z",
+      "totalTime": "35h",
       "commitsIds": ["commit-1", "commit-2"],
       "tags": ["웹", "모바일"]
+    },
+    {
+      "id": "project-2",
+      "name": "쇼핑몰 앱",
+      "description": "안드로이드 쇼핑 애플리케이션",
+      "architecture": "Flutter + Firebase",
+      "status": "완료",
+      "createdAt": "2023-02-10T10:00:00Z",
+      "modifiedAt": "2023-03-05T18:45:00Z",
+      "totalTime": "120h",
+      "commitsIds": ["commit-3", "commit-4", "commit-5"],
+      "tags": ["모바일", "앱"]
     }
   ],
   "commits": [
     {
       "id": "commit-1",
-      "parentProjectId": "project-1",
-      "message": "커밋 메시지1",
-      "timeSpent": "작업시간",
-      "createdAt": "timestamp",
-      "modifiedAt": "timestamp"
+      "projectId": "project-1",
+      "message": "초기 프로젝트 설정 및 레이아웃 구현",
+      "timeSpent": "5h",
+      "createdAt": "2023-01-15T14:30:00Z",
+      "modifiedAt": "2023-01-15T14:30:00Z"
     },
     {
       "id": "commit-2",
-      "parentProjectId": "project-1",
-      "message": "커밋 메시지2",
-      "timeSpent": "작업시간",
-      "createdAt": "timestamp",
-      "modifiedAt": "timestamp"
+      "projectId": "project-1",
+      "message": "반응형 디자인 적용",
+      "timeSpent": "8h",
+      "createdAt": "2023-01-18T11:45:00Z",
+      "modifiedAt": "2023-01-18T11:45:00Z"
+    },
+    {
+      "id": "commit-3",
+      "projectId": "project-2",
+      "message": "앱 기본 구조 설계",
+      "timeSpent": "12h",
+      "createdAt": "2023-02-10T16:20:00Z",
+      "modifiedAt": "2023-02-10T16:20:00Z"
+    },
+    {
+      "id": "commit-4",
+      "projectId": "project-2",
+      "message": "상품 목록 및 상세 페이지 구현",
+      "timeSpent": "25h",
+      "createdAt": "2023-02-20T09:30:00Z",
+      "modifiedAt": "2023-02-20T09:30:00Z"
+    },
+    {
+      "id": "commit-5",
+      "projectId": "project-2",
+      "message": "결제 시스템 연동",
+      "timeSpent": "18h",
+      "createdAt": "2023-03-01T13:15:00Z",
+      "modifiedAt": "2023-03-01T13:15:00Z"
     }
   ]
 }
