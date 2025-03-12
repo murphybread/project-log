@@ -9,22 +9,22 @@ import Chip from "@ui/Chip";
 
 import List from "@ui/List";
 import ListItem from "@ui/ListItem";
-
 import { ClientApi } from "@api/ClientApi";
+
+import { TimeUtils } from "@utils/TimeUtils";
 
 export function SideNavigation({ id }) {
   const [project, setProject] = useState(null);
   const [commits, setCommits] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const client = new ClientApi();
-
   useEffect(() => {
     const fetchData = async () => {
       try {
         const client = new ClientApi();
-        const projectData = await client.getProject("project-1");
+        const projectData = await client.getProject(id);
         setProject(projectData);
+        setCommits(await client.getCommitByProjectId(id));
         setLoading(false);
       } catch (error) {
         console.error("데이터를 가져오는 중 오류 발생:", error);
@@ -39,15 +39,18 @@ export function SideNavigation({ id }) {
     return <div>로딩 중...</div>;
   }
 
+  if (project === null) {
+    return <div>프로젝트 fetch에 실패하였습니다!</div>;
+  }
+
   return (
     <>
-      {JSON.stringify(project, null, 2)}
       <Card variant="outlined">
-        <CardHeader title="proejctName" subtitle="totalCommit" />
-        <Box>
-          <Typography> 총 커밋 횟수</Typography>
-          <Typography> 총 커밋 시간</Typography>
-          <Typography> 최근 커밋 날짜</Typography>
+        <CardHeader title={project.name} subtitle={project.description} />
+        <Box direction="col">
+          <Typography> 총 커밋 횟수: {commits.length}</Typography>
+          <Typography> 총 커밋 시간: {TimeUtils.getAllCommitsTimes(commits)}</Typography>
+          <Typography> 최근 커밋 날짜: {TimeUtils.getRecentCommitsDate(commits)}</Typography>
         </Box>
         <Box>
           <Typography> 프로젝트 소개 Description</Typography>
@@ -72,6 +75,7 @@ export function SideNavigation({ id }) {
           <Chip size="sm" variant="warning" label="태그4" />
         </Box>
       </Card>
+      {/* {JSON.stringify(commits, null, 2)} */}
     </>
   );
 }

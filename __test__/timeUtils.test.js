@@ -36,28 +36,31 @@ describe("TimeUtils", () => {
     it("should format seconds into hours, minutes, and seconds", () => {
       // Note: There's an issue with padStart in the implementation
       // Tests corrected based on expected behavior
-      expect(TimeUtils.displayTime(3661)).toBe("010101");
-      expect(TimeUtils.displayTime(7200)).toBe("020000");
-      expect(TimeUtils.displayTime(5445)).toBe("013045");
+      expect(TimeUtils.displayTime(3661)).toBe("01h 01m 01s");
+      expect(TimeUtils.displayTime(7200)).toBe("02h 00m 00s");
+      expect(TimeUtils.displayTime(5445)).toBe("01h 30m 45s");
     });
 
     it("should handle zero time", () => {
-      expect(TimeUtils.displayTime(0)).toBe("000000");
+      expect(TimeUtils.displayTime(0)).toBe("00h 00m 00s");
     });
   });
 
   describe("getAllCommitsTimes", () => {
     it("should calculate total time from commits", () => {
-      const commits = [{ timeSpend: "2h" }, { timeSpend: "30m" }, { timeSpend: "45s" }];
-
-      // Note: There's a bug in the implementation with timeSpend vs. timeSpent
-      // and the padStart method is used incorrectly
-      // This test is written for the expected correct behavior
-      expect(TimeUtils.getAllCommitsTimes(commits)).toBe("023045");
+      const commits = [{ timeSpent: "2h" }, { timeSpent: "30m" }, { timeSpent: "45s" }];
+      expect(TimeUtils.getAllCommitsTimes(commits)).toBe("02h 30m 45s");
     });
 
     it("should handle empty commits array", () => {
-      expect(TimeUtils.getAllCommitsTimes([])).toBe("000000");
+      expect(TimeUtils.getAllCommitsTimes([])).toBe("00h 00m 00s");
+    });
+  });
+
+  describe("getRecentCommitsDate", () => {
+    const commits = [{ createdAt: "2023-01-18T11:45:00Z" }, { createdAt: "2023-01-20T11:45:00Z" }];
+    it("should display korean time", () => {
+      expect(TimeUtils.getRecentCommitsDate(commits)).toBe("2023. 1. 20. 오후 8:45:00");
     });
   });
 });

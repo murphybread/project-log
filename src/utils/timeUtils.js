@@ -24,18 +24,40 @@ export class TimeUtils {
 
   static displayTime(time) {
     let [hours, minutes, seconds] = [0, 0, 0];
+    let message = "";
 
     hours = Math.floor(time / 3600);
     minutes = Math.floor((time % 3600) / 60);
     seconds = time % 60;
 
-    return String(hours).padStart(2, "0") + String(minutes).padStart(2, "0") + String(seconds).padStart(2, "0");
+    message += String(hours).padStart(2, "0") + "h ";
+    message += String(minutes).padStart(2, "0") + "m ";
+    message += String(seconds).padStart(2, "0") + "s";
+
+    return message;
   }
 
   static getAllCommitsTimes(commits) {
     let commitsTime = 0;
-    commits.map((commit) => (commitsTime += TimeUtils.getTime(commit.timeSpend)));
+    commits.map((commit) => (commitsTime += TimeUtils.getTime(commit.timeSpent)));
 
     return TimeUtils.displayTime(commitsTime);
+  }
+
+  static getRecentCommitsDate(commits) {
+    if (!commits || commits.length === 0) return "없음";
+
+    let mostRecentDate = new Date(0);
+
+    commits.forEach((commit) => {
+      if (commit.createdAt) {
+        const commitDate = new Date(commit.createdAt);
+        if (commitDate > mostRecentDate) {
+          mostRecentDate = commitDate;
+        }
+      }
+    });
+
+    return mostRecentDate.toLocaleString("ko-KR");
   }
 }
