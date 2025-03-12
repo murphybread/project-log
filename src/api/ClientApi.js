@@ -53,6 +53,16 @@ export class ClientApi {
     }
   }
 
+  async getCommitByProjectId(projectId) {
+    try {
+      const response = await this.client.get(`/commits?projectId=${projectId}`);
+      return response.data;
+    } catch (error) {
+      this.handleError(error, `프로젝트(ID: ${projectId})의 커밋을 가져오는 중 오류 발생`);
+      throw error;
+    }
+  }
+
   // 공통 에러 처리 헬퍼 메서드
   handleError(error, message) {
     console.error(message);
