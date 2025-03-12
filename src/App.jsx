@@ -31,8 +31,8 @@ function App() {
           <CardContent>카드 컨텐츠</CardContent>
           <CardMedia type="image" alt="react logo" />
         </Card> */}
-        <h1>aaa</h1>
-        <SideNavigation />
+
+        <SideNavigation id="project-1" />
       </main>
     </>
   );

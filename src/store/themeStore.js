@@ -80,6 +80,9 @@ export const useTheme = create((set, get) => ({
       typography: {
         base: "text-gray-900 text-base font-normal",
 
+        display_flex: "flex",
+        display_block: "block",
+
         variant_h1: "text-5xl font-light mb-2",
         variant_h2: "text-4xl font-light mb-2",
         variant_h3: "text-3xl font-normal mb-2",
@@ -116,13 +119,18 @@ export const useTheme = create((set, get) => ({
         "whitespace_pre-wrap": "whitespace-pre-wrap",
       },
       box: {
-        base: "rounded-md transition-all",
+        base: "rounded-md transition-all flex-wrap",
 
         display_block: "block",
         display_flex: "flex",
         display_grid: "grid",
         display_inline: "inline",
         "display_inline-block": "inline-block",
+
+        direction_row: "flex-row",
+        direction_row_reverse: "flex-row-reverse",
+        direction_col: "flex-col",
+        direction_col_reverse: "flex-col-reverse",
 
         padding_none: "p-0",
         padding_sm: "p-2",

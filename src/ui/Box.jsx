@@ -10,6 +10,7 @@ const Box = ({
   height = "fit",
   variant = "outlined",
   color = "default",
+  direction = "row",
   className = "",
   ...props
 }) => {
@@ -21,6 +22,7 @@ const Box = ({
   const heightClasses = useTheme((state) => state.getComponentStyle("box", `height_${height}`));
   const variantClasses = useTheme((state) => state.getComponentStyle("box", `variant_${variant}`));
   const colorClasses = useTheme((state) => state.getComponentStyle("box", `color_${color}`));
+  const directionClasses = useTheme((state) => state.getComponentStyle("box", `direction_${direction}`));
 
   return (
     <div
@@ -33,6 +35,7 @@ const Box = ({
         ${heightClasses}
         ${variantClasses}
         ${colorClasses}
+        ${directionClasses}
         ${className}
       `}
       {...props}
