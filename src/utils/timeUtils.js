@@ -7,19 +7,19 @@ export class TimeUtils {
 
     for (let el of timeArr) {
       el = el.toLowerCase();
-      if (el.endWiths("h")) {
-        let [number, letter] = el.split("h");
+      if (el.endsWith("h")) {
+        const number = parseInt(el.replace("h", ""), 10);
         secondTime += number * 3600;
-      } else if (el.endWiths("m")) {
-        let [number, letter] = el.split("m");
+      } else if (el.endsWith("m")) {
+        const number = parseInt(el.replace("m", ""), 10);
         secondTime += 60 * number;
       } else {
-        let [number, letter] = el.split("s");
+        const number = parseInt(el.replace("s", ""), 10);
         secondTime += number;
       }
     }
 
-    return secondTime;
+    return Number.isNaN(secondTime) ? 0 : secondTime;
   }
 
   static displayTime(time) {
@@ -29,7 +29,7 @@ export class TimeUtils {
     minutes = Math.floor((time % 3600) / 60);
     seconds = time % 60;
 
-    return hours.padStart(2, "0") + minutes.padStart(2, "0") + seconds.padStart(2, "0");
+    return String(hours).padStart(2, "0") + String(minutes).padStart(2, "0") + String(seconds).padStart(2, "0");
   }
 
   static getAllCommitsTimes(commits) {

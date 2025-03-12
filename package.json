@@ -11,7 +11,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "lint:style": "stylelint \"src/**/SideNavigation.css\" --fix",
-    "test": "vitest"
+    "test": "node --experimental-vm-modules node_modules/jest/bin/jest.js"
   },
   "dependencies": {
     "@emotion/react": "^11.14.0",
