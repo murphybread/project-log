@@ -65,19 +65,28 @@ export function SideNavigation({ id }) {
           <Typography> 총 커밋 시간: {TimeUtils.getAllCommitsTimes(commits)}</Typography>
           <Typography> 최근 커밋 날짜: {TimeUtils.getRecentCommitsDate(commits)}</Typography>
         </Box>
-        <Box>
-          <Typography> 프로젝트 소개 Description</Typography>
-          <Typography> 프로젝트 상태</Typography>
+        <Box direction="col">
+          <Typography> 프로젝트 소개: {project.contents}</Typography>
+          <Chip variant="primary" label={project.status} />
           <Typography> 주요 기능</Typography>
+          <List>
+            {project.features.map((feat, idx) => (
+              <ListItem key={`feat-${idx}`} secondary={feat}></ListItem>
+            ))}
+          </List>
           <Typography> 참여자</Typography>
-          <Typography> 태그</Typography>
+          <List>
+            {project.contributors.map((people, idx) => (
+              <ListItem key={`people-${idx}`} secondary={people}></ListItem>
+            ))}
+          </List>
+          <Box variant="none">
+            {project.tags.map((tag, idx) => (
+              <Chip key={`tag-${idx}`} variant="primary" label={`#${tag}`} />
+            ))}
+          </Box>
         </Box>
-        <Chip variant="primary" label="프로젝트상태" />
-        <List>
-          <ListItem secondary="첫 번째 항목" />
-          <ListItem secondary="두 번째 항목" />
-          <ListItem secondary="세 번째 항목" />
-        </List>
+
         <Box>
           <Typography> 참여자 목록: A B C D</Typography>
         </Box>

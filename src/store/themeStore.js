@@ -152,6 +152,7 @@ export const useTheme = create((set, get) => ({
         height_screen: "h-screen",
         height_fit: "h-fit",
 
+        variant_none: "",
         variant_outlined: "border border-gray-400",
         variant_filled: "bg-gray-100",
         variant_elevated: "shadow-md",

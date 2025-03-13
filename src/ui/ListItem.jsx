@@ -34,7 +34,7 @@ const ListItem = ({
       tabIndex={onClick && !disabled ? 0 : undefined}
       {...props}
     >
-      <div className="flex-grow">
+      <div>
         {primary && <div className={primaryTextClasses}>{primary}</div>}
         {secondary && <div className={secondaryTextClasses}>{secondary}</div>}
         {children}

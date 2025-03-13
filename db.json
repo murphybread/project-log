@@ -4,13 +4,15 @@
       "id": "project-1",
       "name": "웹 포트폴리오",
       "description": "개인 포트폴리오 웹사이트 개발",
+      "contents": "이 프로젝트는 프로젝트를 하면서 발생하는 기록을 남기기 위한 사이트입니다. 커밋 방식을 차용하여 코드 레벨에서의 설명이 아닌 프로젝트 관리를 위한 목적을 로깅합니다.",
       "architecture": "React + Node.js",
       "status": "진행중",
       "createdAt": "2023-01-15T09:00:00Z",
       "modifiedAt": "2023-01-20T15:30:00Z",
-      "totalTime": "35h",
       "commitsIds": ["commit-1", "commit-2"],
-      "tags": ["웹", "모바일"]
+      "tags": ["웹", "모바일"],
+      "features": ["프로젝트 기록 저장", "커밋 형태로 작업 기록 관리", "작업 시간 측정 및 기록"],
+      "contributors": ["머피", "존", "캐럿럿"]
     },
     {
       "id": "project-2",
@@ -20,7 +22,6 @@
       "status": "완료",
       "createdAt": "2023-02-10T10:00:00Z",
       "modifiedAt": "2023-03-05T18:45:00Z",
-      "totalTime": "120h",
       "commitsIds": ["commit-3", "commit-4", "commit-5"],
       "tags": ["모바일", "앱"]
     }
