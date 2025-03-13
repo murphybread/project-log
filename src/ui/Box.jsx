@@ -11,6 +11,7 @@ const Box = ({
   variant = "outlined",
   color = "default",
   direction = "row",
+  gap = "sm",
   className = "",
   ...props
 }) => {
@@ -23,6 +24,7 @@ const Box = ({
   const variantClasses = useTheme((state) => state.getComponentStyle("box", `variant_${variant}`));
   const colorClasses = useTheme((state) => state.getComponentStyle("box", `color_${color}`));
   const directionClasses = useTheme((state) => state.getComponentStyle("box", `direction_${direction}`));
+  const gapClasses = useTheme((state) => state.getComponentStyle("box", `gap_${gap}`));
 
   return (
     <div
@@ -36,6 +38,7 @@ const Box = ({
         ${variantClasses}
         ${colorClasses}
         ${directionClasses}
+        ${gapClasses}
         ${className}
       `}
       {...props}

@@ -160,6 +160,10 @@ export const useTheme = create((set, get) => ({
         color_primary: "bg-blue-600",
         color_secondary: "bg-gray-500",
         color_transparent: "bg-transparent",
+
+        gap_sm: "gap-2",
+        gap_md: "gap-4",
+        gap_large: "gap-8",
       },
       chip: {
         base: "inline-flex items-center rounded-full rounded-full px-1 py-1 text-xs font-extrabold",
