@@ -166,7 +166,7 @@ export const useTheme = create((set, get) => ({
         gap_large: "gap-8",
       },
       chip: {
-        base: "inline-flex items-center rounded-full rounded-full px-1 py-1 text-xs font-extrabold",
+        base: "inline-flex items-center rounded-full transition-colors rounded-full px-3 py-1 text-sm font-medium w-fit grow-0",
 
         variant_default: "bg-gray-400 text-gray-800 hover:bg-gray-200",
         variant_primary: "bg-blue-400 text-blue-800 hover:bg-blue-500",
@@ -222,7 +222,7 @@ export const useTheme = create((set, get) => ({
         outline: "border border-blue-400 text-blue-400 hover:bg-blue-900 hover:bg-opacity-30",
       },
       chip: {
-        base: "inline-flex items-center rounded-full transition-colors rounded-full px-3 py-1 text-sm font-medium",
+        base: "inline-flex items-center rounded-full transition-colors rounded-full px-3 py-1 text-sm font-medium w-fit grow-0",
 
         variant_default: "bg-gray-100 text-gray-800 hover:bg-gray-200",
         variant_primary: "bg-blue-100 text-blue-800 hover:bg-blue-200",
