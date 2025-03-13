@@ -28,12 +28,25 @@ export function SideNavigation({ id }) {
         setLoading(false);
       } catch (error) {
         console.error("데이터를 가져오는 중 오류 발생:", error);
-        setLoading(false);
       }
     };
 
     fetchData();
-  }, []); // 빈 배열은 컴포넌트가 마운트될 때 한 번만 실행됨을 의미
+
+    let intervalId;
+    if (loading) {
+      intervalId = setInterval(() => {
+        fetchData();
+      }, 10000);
+    }
+
+    // Clean up function
+    return () => {
+      if (intervalId) {
+        clearInterval(intervalId);
+      }
+    };
+  }, [loading, id]);
 
   if (loading) {
     return <div>로딩 중...</div>;
