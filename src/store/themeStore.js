@@ -22,7 +22,7 @@ export const useTheme = create((set, get) => ({
       },
       card: {
         base: "bg-white text-black shadow-lg rounded-xl max-w-80 max-h-full overflow-hidden",
-        baseEffect: "transition duration-300 hover:-translate-y-2 hover:shadow-md",
+        baseEffect: "transition duration-300 hover:-translate-y-4 hover:shadow-md",
 
         variant_outlined: "border border-slate-700",
         variant_default: "bg-white",

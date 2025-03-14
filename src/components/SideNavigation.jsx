@@ -53,7 +53,7 @@ export function SideNavigation({ id }) {
   }
 
   if (project === null) {
-    return <div>프로젝트 fetch에 실패하였습니다!</div>;
+    return <div>프로젝트 fetch에 실패하였습니다! {new Date()}</div>;
   }
 
   return (

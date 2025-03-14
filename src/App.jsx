@@ -13,16 +13,10 @@ import Box from "./ui/Box.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
+  const [selected, setSelected] = useState(null);
 
   return (
     <DashboardLayout
-      sidebar={
-        <div>
-          {/* Sidebar content goes here */}
-          <h2 className="text-xl font-bold mb-4">Project Log</h2>
-          <nav className="mt-6">{/* Sidebar navigation items */}</nav>
-        </div>
-      }
       header={
         <div>
           {/* Header content goes here */}
