@@ -6,35 +6,32 @@ import { TabButton } from "./components/TabButton.jsx";
 import { ProjectContainer } from "@components/ProjectContainer.jsx";
 import { Timer } from "@components/Timer.jsx";
 import { SideNavigation } from "@components/SideNavigation.jsx";
-import { MuiComponents } from "@components/MuiComponents.jsx";
 
-import { SideNavigationMui } from "@components/SideNavigationMui.jsx";
-import Card from "@ui/Card.jsx";
-import CardHeader from "@ui/CardHeader.jsx";
-import CardContent from "@ui/CardContent.jsx";
-import CardMedia from "@ui/CardMedia.jsx";
-import Typography from "@ui/Typography.jsx";
-import Button from "@ui/Button";
-import Divider from "@ui/Divider.jsx";
+import DashboardLayout from "./layouts/DashboardLayout";
+
+import Box from "./ui/Box.jsx";
 
 function App() {
   const [count, setCount] = useState(0);
 
   return (
-    <>
-      {/* <MuiComponents /> */}
-      <main style={{ display: "flex", gap: 30 }}>
-        {/* <Button> Button Default</Button>
-        <Card variant="outlined" elevation={4} className="px-0">
-          <CardHeader title="타이틀" subtitle="subtitle" />
-          <Divider />
-          <CardContent>카드 컨텐츠</CardContent>
-          <CardMedia type="image" alt="react logo" />
-        </Card> */}
-
-        <SideNavigation id="project-1" />
-      </main>
-    </>
+    <DashboardLayout
+      sidebar={
+        <div>
+          {/* Sidebar content goes here */}
+          <h2 className="text-xl font-bold mb-4">Project Log</h2>
+          <nav className="mt-6">{/* Sidebar navigation items */}</nav>
+        </div>
+      }
+      header={
+        <div>
+          {/* Header content goes here */}
+          <h1 className="text-2xl font-bold">Dashboard</h1>
+        </div>
+      }
+    >
+      <SideNavigation id="project-1"></SideNavigation>
+    </DashboardLayout>
   );
 }
 
