@@ -25,6 +25,7 @@ function App() {
       }
     >
       <SideNavigation id="project-1"></SideNavigation>
+      <Timer></Timer>
     </DashboardLayout>
   );
 }
