@@ -27,7 +27,7 @@ const DashboardLayout = ({ children, sidebar, header }) => {
               <button onClick={moveToMain} className="mb-2 p-2 bg-indigo-300 hover:bg-gray-200 text-stone-800 rounded-md transition-colors">
                 메인으로 돌아가기
               </button>
-              <div className="bg-gray-800 rounded-lg p-2 max-h-[70vh] overflow-auto">{children}</div>
+              <div className="p-2 max-h-[70vh] pointer-events-none  ">{children}</div>
             </div>
           )}
         </div>
@@ -47,7 +47,7 @@ const DashboardLayout = ({ children, sidebar, header }) => {
             {/* 실제 컨텐츠를 담는 컨테이너 - 높이는 부모의 50%만 차지 */}
             <div className="relative bg-white rounded-lg shadow-lg w-full h-1/2">
               {/* 프로젝트 선택 버튼 - 상단에 명확하게 표시 */}
-              <div className="absolute top-0 left-0 right-0 bg-gray-100 p-2 border-b flex justify-end items-center">
+              <div className="absolute top-0 left-0 right-0 bg-gray-100 border-b flex justify-end items-center">
                 <button
                   onClick={moveToSidebar}
                   className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors flex items-center"
@@ -71,7 +71,7 @@ const DashboardLayout = ({ children, sidebar, header }) => {
               </div>
 
               {/* children 컨텐츠 - 버튼 영역을 고려한 패딩 */}
-              <div className="p-4 pt-14">{children}</div>
+              <div className="p-4 pt-20">{children}</div>
             </div>
           </div>
         )}
