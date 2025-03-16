@@ -91,7 +91,7 @@ export const useTheme = create((set, get) => ({
         variant_h6: "text-lg font-medium mb-1",
         variant_subtitle1: "text-base font-normal",
         variant_subtitle2: "text-sm font-medium",
-        variant_body1: "text-xs font-normal",
+        variant_body: "text-xs font-normal",
         variant_body2: "text-body font-normal",
         variant_button: "text-sm font-medium uppercase",
         variant_caption: "text-xs font-normal",
@@ -165,6 +165,10 @@ export const useTheme = create((set, get) => ({
         gap_sm: "gap-2",
         gap_md: "gap-4",
         gap_large: "gap-8",
+
+        align_left: "text-left",
+        align_right: "text-right",
+        align_start: "text-start",
       },
       chip: {
         base: "inline-flex items-center rounded-full transition-colors rounded-full px-3 py-1 text-sm font-medium w-fit grow-0",

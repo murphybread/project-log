@@ -23,7 +23,79 @@
       "createdAt": "2023-02-10T10:00:00Z",
       "modifiedAt": "2023-03-05T18:45:00Z",
       "commitsIds": ["commit-3", "commit-4", "commit-5"],
-      "tags": ["모바일", "앱"]
+      "tags": ["모바일", "앱"],
+      "features": ["상품 목록 및 검색", "장바구니 관리", "결제 시스템"],
+      "contributors": ["머피", "제임스"]
+    },
+    {
+      "id": "project-3",
+      "name": "일정 관리 앱",
+      "description": "개인 및 팀 일정 관리 애플리케이션",
+      "contents": "할 일과 일정을 효율적으로 관리할 수 있는 서비스로, 팀 협업 기능을 포함합니다.",
+      "architecture": "React Native + GraphQL",
+      "status": "진행중",
+      "createdAt": "2023-04-10T08:30:00Z",
+      "modifiedAt": "2023-05-18T14:20:00Z",
+      "commitsIds": ["commit-6", "commit-7", "commit-8"],
+      "tags": ["모바일", "생산성", "앱"],
+      "features": ["할 일 목록 관리", "캘린더 뷰", "알림 기능", "팀 공유"],
+      "contributors": ["머피", "케이트", "마이클"]
+    },
+    {
+      "id": "project-4",
+      "name": "음악 스트리밍 서비스",
+      "description": "클라우드 기반 음악 스트리밍 플랫폼",
+      "contents": "사용자가 음악을 업로드하고 스트리밍할 수 있는 서비스로, 플레이리스트 및 추천 시스템을 포함합니다.",
+      "architecture": "Vue.js + Django + AWS",
+      "status": "일시중지",
+      "createdAt": "2023-06-05T11:45:00Z",
+      "modifiedAt": "2023-07-12T16:30:00Z",
+      "commitsIds": ["commit-9", "commit-10"],
+      "tags": ["웹", "음악", "클라우드"],
+      "features": ["음악 업로드 및 스트리밍", "플레이리스트 생성", "음악 추천"],
+      "contributors": ["제임스", "소피아", "리암"]
+    },
+    {
+      "id": "project-5",
+      "name": "AI 이미지 생성기",
+      "description": "딥러닝 기반 이미지 생성 웹 애플리케이션",
+      "contents": "텍스트 프롬프트를 기반으로 AI가 이미지를 생성하는 서비스입니다.",
+      "architecture": "React + Flask + PyTorch",
+      "status": "완료",
+      "createdAt": "2023-08-10T09:15:00Z",
+      "modifiedAt": "2023-09-25T13:40:00Z",
+      "commitsIds": ["commit-11", "commit-12", "commit-13", "commit-14"],
+      "tags": ["AI", "웹", "이미지"],
+      "features": ["텍스트-이미지 생성", "이미지 수정", "스타일 전이", "갤러리 저장"],
+      "contributors": ["머피", "에밀리", "다니엘"]
+    },
+    {
+      "id": "project-6",
+      "name": "블록체인 지갑",
+      "description": "다중 암호화폐 지원 블록체인 지갑",
+      "contents": "여러 블록체인 네트워크의 암호화폐를 관리할 수 있는 안전한 지갑 애플리케이션입니다.",
+      "architecture": "React + Node.js + Web3.js",
+      "status": "진행중",
+      "createdAt": "2023-10-15T10:20:00Z",
+      "modifiedAt": "2023-11-28T17:10:00Z",
+      "commitsIds": ["commit-15", "commit-16"],
+      "tags": ["블록체인", "웹", "금융"],
+      "features": ["다중 암호화폐 관리", "트랜잭션 전송", "보안 키 관리", "시장 데이터 조회"],
+      "contributors": ["리암", "올리비아", "노아"]
+    },
+    {
+      "id": "project-7",
+      "name": "헬스케어 트래커",
+      "description": "운동 및 건강 관리 모바일 애플리케이션",
+      "contents": "사용자의 운동 기록, 식이 정보, 건강 지표를 추적하고 분석하는 종합 헬스케어 앱입니다.",
+      "architecture": "Flutter + Firebase + TensorFlow Lite",
+      "status": "완료",
+      "createdAt": "2023-12-01T08:00:00Z",
+      "modifiedAt": "2024-01-15T12:30:00Z",
+      "commitsIds": ["commit-17", "commit-18", "commit-19"],
+      "tags": ["모바일", "헬스케어", "AI"],
+      "features": ["운동 기록 추적", "식단 관리", "건강 지표 분석", "AI 기반 운동 코칭"],
+      "contributors": ["캐럿럿", "소피아", "에밀리"]
     }
   ],
   "commits": [
@@ -66,6 +138,118 @@
       "timeSpent": "18h",
       "createdAt": "2023-03-01T13:15:00Z",
       "modifiedAt": "2023-03-01T13:15:00Z"
+    },
+    {
+      "id": "commit-6",
+      "projectId": "project-3",
+      "message": "앱 기본 UI 및 네비게이션 구현",
+      "timeSpent": "10h",
+      "createdAt": "2023-04-15T10:20:00Z",
+      "modifiedAt": "2023-04-15T10:20:00Z"
+    },
+    {
+      "id": "commit-7",
+      "projectId": "project-3",
+      "message": "할 일 목록 및 캘린더 기능 구현",
+      "timeSpent": "18h",
+      "createdAt": "2023-04-28T13:45:00Z",
+      "modifiedAt": "2023-04-28T13:45:00Z"
+    },
+    {
+      "id": "commit-8",
+      "projectId": "project-3",
+      "message": "팀 공유 및 알림 기능 추가",
+      "timeSpent": "14h",
+      "createdAt": "2023-05-15T09:10:00Z",
+      "modifiedAt": "2023-05-15T09:10:00Z"
+    },
+    {
+      "id": "commit-9",
+      "projectId": "project-4",
+      "message": "기본 스트리밍 서비스 구조 설계",
+      "timeSpent": "22h",
+      "createdAt": "2023-06-10T14:30:00Z",
+      "modifiedAt": "2023-06-10T14:30:00Z"
+    },
+    {
+      "id": "commit-10",
+      "projectId": "project-4",
+      "message": "음악 업로드 및 재생 기능 구현",
+      "timeSpent": "30h",
+      "createdAt": "2023-07-05T11:20:00Z",
+      "modifiedAt": "2023-07-05T11:20:00Z"
+    },
+    {
+      "id": "commit-11",
+      "projectId": "project-5",
+      "message": "초기 프로젝트 설정 및 UI 디자인",
+      "timeSpent": "15h",
+      "createdAt": "2023-08-12T10:45:00Z",
+      "modifiedAt": "2023-08-12T10:45:00Z"
+    },
+    {
+      "id": "commit-12",
+      "projectId": "project-5",
+      "message": "AI 모델 통합 및 이미지 생성 기능",
+      "timeSpent": "35h",
+      "createdAt": "2023-08-25T13:30:00Z",
+      "modifiedAt": "2023-08-25T13:30:00Z"
+    },
+    {
+      "id": "commit-13",
+      "projectId": "project-5",
+      "message": "이미지 수정 및 스타일 전이 기능 추가",
+      "timeSpent": "28h",
+      "createdAt": "2023-09-10T09:15:00Z",
+      "modifiedAt": "2023-09-10T09:15:00Z"
+    },
+    {
+      "id": "commit-14",
+      "projectId": "project-5",
+      "message": "갤러리 저장 및 공유 기능 완료",
+      "timeSpent": "16h",
+      "createdAt": "2023-09-22T15:40:00Z",
+      "modifiedAt": "2023-09-22T15:40:00Z"
+    },
+    {
+      "id": "commit-15",
+      "projectId": "project-6",
+      "message": "지갑 인터페이스 및 기본 연결 구현",
+      "timeSpent": "20h",
+      "createdAt": "2023-10-20T11:30:00Z",
+      "modifiedAt": "2023-10-20T11:30:00Z"
+    },
+    {
+      "id": "commit-16",
+      "projectId": "project-6",
+      "message": "다중 블록체인 지원 및 트랜잭션 구현",
+      "timeSpent": "40h",
+      "createdAt": "2023-11-15T09:40:00Z",
+      "modifiedAt": "2023-11-15T09:40:00Z"
+    },
+    {
+      "id": "commit-17",
+      "projectId": "project-7",
+      "message": "앱 기본 구조 및 사용자 인터페이스 개발",
+      "timeSpent": "18h",
+      "createdAt": "2023-12-05T10:15:00Z",
+      "modifiedAt": "2023-12-05T10:15:00Z"
+    },
+    {
+      "id": "commit-18",
+      "projectId": "project-7",
+      "message": "운동 및 식단 추적 기능 구현",
+      "timeSpent": "25h",
+      "createdAt": "2023-12-20T14:30:00Z",
+      "modifiedAt": "2023-12-20T14:30:00Z"
+    },
+    {
+      "id": "commit-19",
+      "projectId": "project-7",
+      "message": "AI 코칭 및 분석 기능 통합",
+      "timeSpent": "32h",
+      "createdAt": "2024-01-08T09:45:00Z",
+      "modifiedAt": "2024-01-08T09:45:00Z"
     }
   ]
 }

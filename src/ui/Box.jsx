@@ -12,6 +12,7 @@ const Box = ({
   color = "default",
   direction = "row",
   gap = "sm",
+  align = "left",
   className = "",
   ...props
 }) => {
@@ -25,6 +26,7 @@ const Box = ({
   const colorClasses = useTheme((state) => state.getComponentStyle("box", `color_${color}`));
   const directionClasses = useTheme((state) => state.getComponentStyle("box", `direction_${direction}`));
   const gapClasses = useTheme((state) => state.getComponentStyle("box", `gap_${gap}`));
+  const alignClasses = useTheme((state) => state.getComponentStyle("box", `align_${align}`));
 
   return (
     <div
@@ -39,6 +41,7 @@ const Box = ({
         ${colorClasses}
         ${directionClasses}
         ${gapClasses}
+        ${alignClasses}
         ${className}
       `}
       {...props}

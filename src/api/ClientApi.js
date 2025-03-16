@@ -13,7 +13,7 @@ export class ClientApi {
     });
   }
 
-  async getAllProject() {
+  async getAllProjects() {
     try {
       const response = await this.client.get("/projects");
       return response.data;
