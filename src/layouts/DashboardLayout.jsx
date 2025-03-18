@@ -14,9 +14,9 @@ const DashboardLayout = ({ children, sidebar, header }) => {
   };
 
   return (
-    <div className="flex h-screen overflow-hidden">
+    <div className="flex min-h-screenl overflow-auto">
       {/* Sidebar Column */}
-      <div className="relative flex flex-col w-1/4 h-full bg-gray-600 z-10">
+      <div className="relative flex flex-col w-1/4 min-h-screen bg-gray-600 z-10">
         {/* Sidebar content */}
         <div className="flex-grow p-4 text-white">
           {sidebar}
