@@ -51,13 +51,29 @@ export class TimeUtils {
 
     commits.forEach((commit) => {
       if (commit.createdAt) {
-        const commitDate = new Date(commit.createdAt);
+        const commitDate = new Date(commit.modifiedAt);
         if (commitDate > mostRecentDate) {
           mostRecentDate = commitDate;
         }
       }
     });
 
-    return mostRecentDate.toLocaleString("ko-KR");
+    return mostRecentDate;
+  }
+  static formatDate(date) {
+    if (!date || date === "없음") return "없음";
+
+    // Date 객체인지 확인
+    if (date instanceof Date) {
+      return date.toLocaleString("ko-KR");
+    }
+
+    // 문자열인 경우 Date로 변환
+    try {
+      const dateObj = new Date(date);
+      return dateObj.toLocaleString("ko-KR");
+    } catch (e) {
+      return "날짜 형식 오류";
+    }
   }
 }

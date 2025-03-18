@@ -45,9 +45,9 @@ const DashboardLayout = ({ children, sidebar, header }) => {
         {!contentInSidebar && (
           <div className="flex-grow flex justify-center p-4 z-10">
             {/* 실제 컨텐츠를 담는 컨테이너 - 높이는 부모의 50%만 차지하지만 가운데 정렬 */}
-            <div className="relative bg-white rounded-lg shadow-lg w-full max-w-4xl h-1/2 mx-auto">
+            <div className="relative rounded-lg shadow-lg w-full max-w-4xl h-1/2 mx-auto">
               {/* 프로젝트 선택 버튼 - 상단에 명확하게 표시 */}
-              <div className="absolute top-0 left-0 right-0 bg-gray-100 border-b flex justify-end items-center">
+              <div className="absolute top-0 left-0 right-0 flex justify-end items-center">
                 <button
                   onClick={moveToSidebar}
                   className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors flex items-center"

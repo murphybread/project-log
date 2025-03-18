@@ -91,7 +91,7 @@ export const useTheme = create((set, get) => ({
         variant_h6: "text-lg font-medium mb-1",
         variant_subtitle1: "text-base font-normal",
         variant_subtitle2: "text-sm font-medium",
-        variant_body: "text-xs font-normal",
+        variant_body1: "text-xs font-normal",
         variant_body2: "text-body font-normal",
         variant_button: "text-sm font-medium uppercase",
         variant_caption: "text-xs font-normal",

@@ -78,6 +78,12 @@ const HomeLayout = ({ onProjectSelect }) => {
     return Object.prototype.hasOwnProperty.call(obj, prop) && obj[prop] !== null;
   };
 
+  const sortedProjects = [...projects].sort((a, b) => {
+    const dateA = a.recentCommitDate || new Date(0);
+    const dateB = b.recentCommitDate || new Date(0);
+    return dateB - dateA; // 최근 날짜가 앞으로
+  });
+
   return (
     <div className="container mx-auto p-6">
       <div className="mb-8">
@@ -105,8 +111,8 @@ const HomeLayout = ({ onProjectSelect }) => {
 
       {/* 프로젝트 그리드 */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {projects.length > 0 ? (
-          projects.map((project) => (
+        {sortedProjects.length > 0 ? (
+          sortedProjects.map((project) => (
             <div key={project.id} className="cursor-pointer transition-transform hover:scale-[1.02]" onClick={() => handleProjectClick(project.id)}>
               <Card variant="outlined" className="h-full">
                 <CardHeader
@@ -126,10 +132,10 @@ const HomeLayout = ({ onProjectSelect }) => {
                       <span className="font-semibold">총 작업 시간:</span> {project.totalTime || "0h 0m"}
                     </Typography>
                     <Typography variant="subtitle2">
-                      <span className="font-semibold">최근 커밋:</span> {project.recentCommitDate || "없음"}
+                      <span className="font-semibold">최근 커밋:</span> {TimeUtils.formatDate(project.recentCommitDate)}
                     </Typography>
                     {hasProperty(project, "tags") && Array.isArray(project.tags) && project.tags.length > 0 && (
-                      <Box direction="row" variant="outline">
+                      <Box direction="row" variant="outlined">
                         {project.tags.map((tag, idx) => (
                           <Typography key={`${project.id}-tag-${idx}`} variant="caption">
                             #{tag}
