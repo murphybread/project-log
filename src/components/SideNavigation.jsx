@@ -53,7 +53,7 @@ export function SideNavigation({ id }) {
   }
 
   if (project === null) {
-    return <div>프로젝트 fetch에 실패하였습니다! {new Date()}</div>;
+    return <div>프로젝트 fetch에 실패하였습니다! {new Date().toString()}</div>;
   }
 
   // project 객체가 속성을 가지고 있는지 확인하는 함수
@@ -71,7 +71,7 @@ export function SideNavigation({ id }) {
         <Box direction="col">
           <Typography> 총 커밋 횟수: {commits.length}</Typography>
           <Typography> 총 커밋 시간: {TimeUtils.getAllCommitsTimes(commits)}</Typography>
-          <Typography> 최근 커밋 날짜: {TimeUtils.getRecentCommitsDate(commits)}</Typography>
+          <Typography> 최근 커밋 날짜: {TimeUtils.formatDate(TimeUtils.getRecentCommitsDate(commits))}</Typography>
         </Box>
         <Box direction="col">
           <Typography> 프로젝트 소개: {hasProperty(project, "contents") ? project.contents : "내용 없음"}</Typography>

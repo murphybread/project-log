@@ -1,79 +1,6 @@
-import styled from "styled-components";
-
-const TimerContainer = styled.div`
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  height: 350px;
-  border: 1px solid black;
-  position: relative;
-`;
-
-const TimerRow = styled.div`
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  width: 100%;
-`;
-
-const ButtonRow = styled.div`
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  width: 100%;
-`;
-
-const TimerItem = styled.div`
-  padding: 20px;
-  width: 100%;
-  border: 1px solid black;
-  background-color: lightblue;
-  font-size: 2rem;
-`;
-
-const StartButton = styled.button`
-  padding: 10px 20px;
-  border: 1px solid black;
-  background-color: ${(props) => (props.toggleState ? "#3c91e6" : "#ffffff")};
-  color: ${(props) => (props.toggleState ? "#1f0318" : "#000000")};
-  cursor: pointer;
-  margin-bottom: 10px;
-  width: 200px;
-`;
-
-const ResetButton = styled.button`
-  padding: 10px 20px;
-  border: 1px solid black;
-  background-color:  "#ffffff"
-  color: ${(props) => (props.toggleState ? "#1f0318" : "#000000")};
-  cursor: pointer;
-  margin-bottom: 10px;
-  width: 200px;
-
-  
-
-  &:active {
-    background-color: #2a9d8f;
-    color: #1f0318;
-    transition: background-color 0.9s ease, color 0.2s ease;
-    
-  }
-`;
-
-const RecordButton = styled.button`
-  border: 1px solid black;
-  border-radius: 10px;
-  background-color: #e7e7e7;
-  cursor: pointer;
-  position: absolute;
-  bottom: 10px;
-  right: 10px;
-`;
-
 import React from "react";
 import { useState, useEffect } from "react";
+import Button from "@ui/Button";
 
 export function Timer({ initialTime = 0 }) {
   const [isRunning, setIsRunning] = useState(false);
@@ -91,11 +18,12 @@ export function Timer({ initialTime = 0 }) {
       }, 10);
     }
     return () => clearInterval(intervalId);
-  }, [isRunning]); // isRunning 상태가 변경될 때마다 실행
+  }, [isRunning]);
 
   const toggleTimer = () => {
     setIsRunning(!isRunning);
   };
+
   const resetTimer = () => {
     setTime(0);
   };
@@ -107,21 +35,30 @@ export function Timer({ initialTime = 0 }) {
   const centisecondsPart = totalCentiseconds % 100;
 
   return (
-    <TimerContainer>
-      <TimerRow>
-        <TimerItem>
-          {displayTime(hours)}:{displayTime(minutes)}:
-          {String(secondsPart).padStart(2, "0")}.
-          {String(centisecondsPart).padStart(2, "0")}
-        </TimerItem>
-      </TimerRow>
-      <ButtonRow>
-        <StartButton onClick={toggleTimer} toggleState={isRunning}>
+    <div className="flex flex-col gap-5 justify-center items-center h-[350px] border border-black relative">
+      <div className="flex gap-5 justify-center w-full">
+        <div className="p-5 w-full border border-black bg-blue-200 text-2xl">
+          {displayTime(hours)}:{displayTime(minutes)}:{String(secondsPart).padStart(2, "0")}.{String(centisecondsPart).padStart(2, "0")}
+        </div>
+      </div>
+
+      <div className="flex gap-5 justify-center w-full">
+        <Button
+          className={`border border-black mb-2.5 w-[200px] cursor-pointer ${isRunning ? "bg-blue-500 text-gray-900" : "bg-white text-black"}`}
+          onClick={toggleTimer}
+        >
           {isRunning ? "Pause" : "Start"}
-        </StartButton>
-        <ResetButton onClick={resetTimer}> Reset </ResetButton>
-        <RecordButton>Record</RecordButton>
-      </ButtonRow>
-    </TimerContainer>
+        </Button>
+
+        <Button
+          className="border border-black mb-2.5 w-[200px] cursor-pointer bg-white text-black active:bg-teal-600 active:text-gray-900"
+          onClick={resetTimer}
+        >
+          Reset
+        </Button>
+
+        <Button className="border border-black rounded-lg bg-gray-200 cursor-pointer absolute bottom-2.5 right-2.5">Record</Button>
+      </div>
+    </div>
   );
 }
