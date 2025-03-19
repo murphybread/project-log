@@ -16,9 +16,9 @@ export const useTheme = create((set, get) => ({
         variant_error: "bg-red-500 hover:bg-red-600 text-white",
         variant_outline: "border border-blue-600 text-blue-600 hover:bg-blue-50",
 
-        fontSize__sm: "px-2 py-1 text-sm",
-        fontSize__md: "px-4 py-2",
-        fontSize__lg: "px-6 py-3 text-lg",
+        fontSize_sm: "px-2 py-1 text-sm",
+        fontSize_md: "px-4 py-2",
+        fontSize_lg: "px-6 py-3 text-lg",
       },
       card: {
         base: "bg-white text-black shadow-lg rounded-xl max-w-80 max-h-full overflow-hidden",
