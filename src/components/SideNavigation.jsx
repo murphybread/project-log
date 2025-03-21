@@ -13,72 +13,22 @@ import { ClientApi } from "@api/ClientApi";
 
 import { TimeUtils } from "@utils/TimeUtils";
 
-export function SideNavigation({ id }) {
-  const [project, setProject] = useState(null);
-  const [commits, setCommits] = useState([]);
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const client = new ClientApi();
-        const projectData = await client.getProject(id);
-        setProject(projectData);
-        setCommits(await client.getCommitByProjectId(id));
-        setLoading(false);
-      } catch (error) {
-        console.error("데이터를 가져오는 중 오류 발생:", error);
-      }
-    };
-
-    fetchData();
-
-    let intervalId;
-    if (loading) {
-      intervalId = setInterval(() => {
-        fetchData();
-      }, 10000);
-    }
-
-    // Clean up function
-    return () => {
-      if (intervalId) {
-        clearInterval(intervalId);
-      }
-    };
-  }, [loading, id]);
-
-  if (loading) {
-    return <div>로딩 중...</div>;
-  }
-
-  if (project === null) {
-    return <div>프로젝트 fetch에 실패하였습니다! {new Date().toString()}</div>;
-  }
-
-  // project 객체가 속성을 가지고 있는지 확인하는 함수
-  const hasProperty = (obj, prop) => {
-    return Object.prototype.hasOwnProperty.call(obj, prop) && obj[prop] !== null;
-  };
-
+export function SideNavigation({ project, commits }) {
   return (
     <>
       <Card variant="outlined">
-        <CardHeader
-          title={hasProperty(project, "name") ? project.name : "제목 없음"}
-          subtitle={hasProperty(project, "description") ? project.description : "설명 없음"}
-        />
+        <CardHeader title={project.name || "제목 없음"} subtitle={project.description || "설명 없음"} />
         <Box direction="col">
           <Typography> 총 커밋 횟수: {commits.length}</Typography>
           <Typography> 총 커밋 시간: {TimeUtils.getAllCommitsTimes(commits)}</Typography>
           <Typography> 최근 커밋 날짜: {TimeUtils.formatDate(TimeUtils.getRecentCommitsDate(commits))}</Typography>
         </Box>
         <Box direction="col">
-          <Typography> 프로젝트 소개: {hasProperty(project, "contents") ? project.contents : "내용 없음"}</Typography>
-          <Chip variant="primary" label={hasProperty(project, "status") ? project.status : "상태 없음"} />
+          <Typography> 프로젝트 소개: {project.contents || "내용 없음"}</Typography>
+          <Chip variant="primary" label={project.status || "상태 없음"} />
 
           <Typography> 주요 기능</Typography>
-          {hasProperty(project, "features") && Array.isArray(project.features) && project.features.length > 0 ? (
+          {Array.isArray(project.features) && project.features.length > 0 ? (
             <List>
               {project.features.map((feat, idx) => (
                 <ListItem key={`feat-${idx}`} secondary={feat}></ListItem>
@@ -89,7 +39,7 @@ export function SideNavigation({ id }) {
           )}
 
           <Typography> 참여자</Typography>
-          {hasProperty(project, "contributors") && Array.isArray(project.contributors) && project.contributors.length > 0 ? (
+          {Array.isArray(project.contributors) && project.contributors.length > 0 ? (
             <List>
               {project.contributors.map((people, idx) => (
                 <ListItem key={`people-${idx}`} secondary={people}></ListItem>
@@ -99,7 +49,7 @@ export function SideNavigation({ id }) {
             <Typography variant="caption">참여자 정보가 없습니다.</Typography>
           )}
 
-          {hasProperty(project, "tags") && Array.isArray(project.tags) && project.tags.length > 0 ? (
+          {Array.isArray(project.tags) && project.tags.length > 0 ? (
             <Box variant="none">
               {project.tags.map((tag, idx) => (
                 <Chip key={`tag-${idx}`} variant="primary" label={`#${tag}`} />

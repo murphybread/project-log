@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { ArrowLeftIcon } from "../assets/ArrowLeftIcon";
+import { Typography } from "@mui/material";
 
-const DashboardLayout = ({ children, sidebar, header }) => {
+const DashboardLayout = ({ children, project, sidebar, header }) => {
   const [contentInSidebar, setContentInSidebar] = useState(false);
 
   // 컨텐츠를 사이드바로 이동시키는 함수
@@ -28,7 +29,7 @@ const DashboardLayout = ({ children, sidebar, header }) => {
               <button onClick={moveToMain} className="mb-2 p-2 bg-indigo-300 hover:bg-gray-200 text-stone-800 rounded-md transition-colors">
                 메인으로 돌아가기
               </button>
-              <div className="p-2 max-h-[70vh] pointer-events-none  ">{children}</div>
+              <div className="p-2 max-h-[70vh] pointer-events-none">{children}</div>
             </div>
           )}
         </div>
@@ -40,26 +41,33 @@ const DashboardLayout = ({ children, sidebar, header }) => {
         <div className="absolute top-0 left-0 w-full h-[10%] bg-stone-400 z-0"></div>
 
         {/* Header 영역 */}
-        {header && <div className="w-full h-[10%] z-10 p-4 relative">{header}</div>}
+        {header && (
+          <div className="w-full z-10 p-4 relative">
+            <div className="flex justify-between items-center mb-2">{header}</div>
+          </div>
+        )}
 
+        {/* Main content area */}
         {/* Main content area */}
         {!contentInSidebar && (
           <div className="flex-grow flex justify-center p-4 z-10">
-            {/* 실제 컨텐츠를 담는 컨테이너 - 높이는 부모의 50%만 차지하지만 가운데 정렬 */}
+            {/* 실제 컨텐츠를 담는 컨테이너 */}
             <div className="relative rounded-lg shadow-lg w-full max-w-4xl h-1/2 mx-auto">
-              {/* 프로젝트 선택 버튼 - 상단에 명확하게 표시 */}
-              <div className="absolute top-0 left-0 right-0 flex justify-end items-center">
+              {/* 프로젝트 선택 버튼 - 콘텐츠 상단에 포함 */}
+              <div className="border-b pb-3 mb-3 p-4 flex justify-between items-center">
+                <Typography>{project.name}</Typography>
+
                 <button
                   onClick={moveToSidebar}
-                  className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors flex items-center"
+                  className="px-3 py-1 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition-colors flex items-center gap-1 text-sm"
                 >
                   <span>프로젝트 선택</span>
-                  <ArrowLeftIcon></ArrowLeftIcon>
+                  <ArrowLeftIcon />
                 </button>
               </div>
 
-              {/* children 컨텐츠 - 버튼 영역을 고려한 패딩 */}
-              <div className="p-4 pt-20">{children}</div>
+              {/* children 컨텐츠 */}
+              <div className="px-4 pb-4">{children}</div>
             </div>
           </div>
         )}
