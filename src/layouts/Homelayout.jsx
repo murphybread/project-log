@@ -130,12 +130,12 @@ const HomeLayout = ({ onProjectSelect }) => {
 
         {/* 필터링 및 정렬 옵션 - 이벤트 핸들러 연결 */}
         <div className="flex justify-end gap-2 mb-4">
-          <select className="p-2 border rounded" value={sortOption} onChange={handleSortOptionChange}>
-            <option>최신순</option>
+          <select className="p-2 border rounded bg-blue-300" value={sortOption} onChange={handleSortOptionChange}>
+            <option className="bg-blakc">최신순</option>
             <option>오래된순</option>
             <option>커밋 많은순</option>
           </select>
-          <select className="p-2 border rounded" value={statusFilter} onChange={handleStatusFilterChange}>
+          <select className="p-2 border rounded bg-blue-300" value={statusFilter} onChange={handleStatusFilterChange}>
             <option>모든 상태</option>
             <option>진행중</option>
             <option>완료됨</option>

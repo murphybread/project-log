@@ -19,7 +19,7 @@ function DashboardPage() {
   return (
     <DashboardLayout
       header={
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center w-full">
           <h1 className="text-xl font-bold">프로젝트 대시보드</h1>
           <button onClick={() => navigate("/")} className="px-4 py-2 bg-white text-gray-800 rounded hover:bg-gray-300 transition-colors">
             홈으로 돌아가기
@@ -28,7 +28,6 @@ function DashboardPage() {
       }
     >
       <SideNavigation id={projectId} />
-      <Timer></Timer>
     </DashboardLayout>
   );
 }
