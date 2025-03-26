@@ -1,9 +1,13 @@
 import React, { useState } from "react";
 import { ArrowLeftIcon } from "../assets/ArrowLeftIcon";
 import { Typography } from "@mui/material";
+import { Timer } from "@components/Timer";
+import InputCommit from "@components/InputCommit";
+import { ClientApi } from "@api/ClientApi";
 
-const DashboardLayout = ({ children, project, sidebar, header }) => {
+const DashboardLayout = ({ children, project, sidebar, header, onCommitAdded }) => {
   const [contentInSidebar, setContentInSidebar] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // 컨텐츠를 사이드바로 이동시키는 함수
   const moveToSidebar = () => {
@@ -15,24 +19,57 @@ const DashboardLayout = ({ children, project, sidebar, header }) => {
     setContentInSidebar(false);
   };
 
+  const handleCommitSubmit = async (newCommit) => {
+    if (!project || !project.id) {
+      alert("프로젝트가 선택되지 않았습니다.");
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const client = new ClientApi();
+
+      // 커밋 데이터 생성
+      const commitData = {
+        projectId: project.id,
+        message: newCommit.message,
+        timeSpent: newCommit.timeSpent,
+      };
+
+      // API를 통해 커밋 저장
+      await client.createCommit(commitData);
+
+      // 성공 메시지
+      alert("커밋이 성공적으로 저장되었습니다!");
+
+      // 부모 컴포넌트에 알림 (DashboardPage에서 데이터 새로고침을 위해)
+      if (onCommitAdded) {
+        onCommitAdded();
+      }
+    } catch (error) {
+      console.error("커밋 저장 중 오류 발생:", error);
+      alert("커밋을 저장하는 중 오류가 발생했습니다.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   return (
     <div className="flex min-h-screenl overflow-auto">
       {/* Sidebar Column */}
       <div className="relative flex flex-col w-1/4 min-h-screen bg-gray-600 z-10">
         {/* Sidebar content */}
-        <div className="flex-grow p-4 text-white">
-          {sidebar}
 
-          {/* 메인 컨텐츠가 사이드바로 이동되었을 때 */}
-          {contentInSidebar && (
-            <div className="mt-4">
-              <button onClick={moveToMain} className="mb-2 p-2 bg-indigo-300 hover:bg-gray-200 text-stone-800 rounded-md transition-colors">
-                메인으로 돌아가기
-              </button>
-              <div className="p-2 max-h-[70vh] pointer-events-none">{children}</div>
-            </div>
-          )}
-        </div>
+        {/* 메인 컨텐츠가 사이드바로 이동되었을 때 */}
+        {contentInSidebar && (
+          <div className="mt-4">
+            <button onClick={moveToMain} className="mb-2 p-2 bg-indigo-300 hover:bg-gray-200 text-stone-800 rounded-md transition-colors">
+              메인으로 돌아가기
+            </button>
+            <div className="p-2 max-h-[70vh] pointer-events-none">{children}</div>
+          </div>
+        )}
       </div>
 
       {/* Main Content Column */}
@@ -42,12 +79,11 @@ const DashboardLayout = ({ children, project, sidebar, header }) => {
 
         {/* Header 영역 */}
         {header && (
-          <div className="w-full z-10 p-4 relative">
+          <div className="w-full z-20 p-4 relative bg-stone-400">
             <div className="flex justify-between items-center mb-2">{header}</div>
           </div>
         )}
 
-        {/* Main content area */}
         {/* Main content area */}
         {!contentInSidebar && (
           <div className="flex-grow flex justify-center p-4 z-10">
@@ -69,6 +105,12 @@ const DashboardLayout = ({ children, project, sidebar, header }) => {
               {/* children 컨텐츠 */}
               <div className="px-4 pb-4">{children}</div>
             </div>
+          </div>
+        )}
+        {contentInSidebar && (
+          <div className="p-4 gap-2">
+            <InputCommit projectId={project?.id} onSubmit={handleCommitSubmit} disabled={isSubmitting} />
+            <Timer />
           </div>
         )}
       </div>

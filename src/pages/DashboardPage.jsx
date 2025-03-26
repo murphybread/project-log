@@ -69,6 +69,12 @@ function DashboardPage() {
     return Object.prototype.hasOwnProperty.call(obj, prop) && obj[prop] !== null;
   };
 
+  // DashboardPage.jsx에 다음 코드를 추가합니다
+  const handleCommitAdded = () => {
+    // 커밋이 추가되면 loading 상태를 true로 설정하여 데이터를 다시 불러옵니다
+    setLoading(true);
+  };
+
   return (
     <DashboardLayout
       header={
@@ -80,6 +86,7 @@ function DashboardPage() {
         </div>
       }
       project={project}
+      onCommitAdded={handleCommitAdded}
     >
       <SideNavigation project={project} commits={commits} />
     </DashboardLayout>

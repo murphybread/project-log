@@ -6,6 +6,28 @@ export class ClientApi {
   constructor() {
     this.client = this.createClient();
   }
+  // ClientApi.js에 추가
+  async createCommit(commitData) {
+    try {
+      const response = await fetch("http://localhost:4000/commits", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...commitData,
+          createdAt: new Date().toISOString(),
+          modifiedAt: new Date().toISOString(),
+        }),
+      });
+
+      if (!response.ok) throw new Error("Failed to create commit");
+      return await response.json();
+    } catch (error) {
+      console.error("Error creating commit:", error);
+      throw error;
+    }
+  }
 
   createClient() {
     return axios.create({

@@ -1,3 +1,4 @@
+// Timer.jsx
 import React from "react";
 import { useState, useEffect } from "react";
 import Button from "@ui/Button";
@@ -28,6 +29,28 @@ export function Timer({ initialTime = 0 }) {
     setTime(0);
   };
 
+  const handleRecordClick = () => {
+    // 시간을 형식화
+    const totalSeconds = Math.floor(time / 1000);
+    const hours = Math.floor(totalSeconds / 3600);
+    const minutes = Math.floor((totalSeconds % 3600) / 60);
+
+    let formattedTime = "";
+    if (hours > 0) {
+      formattedTime += `${hours}h `;
+    }
+
+    // 최소 1분 보장
+    const displayMinutes = minutes > 0 ? minutes : 1;
+    formattedTime += `${displayMinutes}m`;
+
+    // 커스텀 이벤트를 통해 시간 데이터 전달
+    const recordEvent = new CustomEvent("timer:record", {
+      detail: { timeSpent: formattedTime.trim() },
+    });
+    window.dispatchEvent(recordEvent);
+  };
+
   const hours = Math.floor(time / (1000 * 60 * 60));
   const minutes = Math.floor((time % (1000 * 60 * 60)) / (1000 * 60));
   const totalCentiseconds = Math.floor((time % (1000 * 60)) / 10);
@@ -44,20 +67,22 @@ export function Timer({ initialTime = 0 }) {
 
       <div className="flex gap-5 justify-center w-full">
         <Button
-          className={`border border-black mb-2.5 w-[200px] cursor-pointer ${isRunning ? "bg-blue-500 text-gray-900" : "bg-white text-black"}`}
+          className={`border border-black mb-2.5 w-[200px] cursor-pointer ${isRunning ? "bg-blue-600 text-gray-900" : "bg-sky-700 text-black"}`}
           onClick={toggleTimer}
         >
           {isRunning ? "Pause" : "Start"}
         </Button>
 
         <Button
-          className="border border-black mb-2.5 w-[200px] cursor-pointer bg-white text-black active:bg-teal-600 active:text-gray-900"
+          className="border border-black mb-2.5 w-[200px] cursor-pointer bg-sky-700 text-black active:bg-teal-600 active:text-gray-900"
           onClick={resetTimer}
         >
           Reset
         </Button>
 
-        <Button className="border border-black rounded-lg bg-gray-200 cursor-pointer absolute bottom-2.5 right-2.5">Record</Button>
+        <Button className="border border-black rounded-lg bg-sky-600 cursor-pointer absolute bottom-2.5 right-2.5" onClick={handleRecordClick}>
+          Record
+        </Button>
       </div>
     </div>
   );

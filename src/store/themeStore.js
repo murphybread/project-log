@@ -20,6 +20,39 @@ export const useTheme = create((set, get) => ({
         fontSize_md: "px-4 py-2",
         fontSize_lg: "px-6 py-3 text-lg",
       },
+      input: {
+        base: "outline-none transition-colors focus:ring-2 focus:ring-opacity-50",
+
+        type_text: "",
+        type_password: "",
+        type_email: "",
+        type_number: "",
+        type_search: "",
+
+        variant_outlined: "border border-gray-300 rounded-md focus:border-blue-500",
+        variant_filled: "bg-gray-100 border-2 border-transparent rounded-md focus:bg-white focus:border-blue-500",
+        variant_standard: "border-b-2 border-gray-300 rounded-none px-0 focus:border-blue-500",
+
+        size_sm: "px-2 py-1 text-sm",
+        size_md: "px-3 py-2 text-base",
+        size_lg: "px-4 py-3 text-lg",
+
+        color_default: "focus:ring-blue-500",
+        color_primary: "focus:ring-blue-500",
+        color_secondary: "focus:ring-gray-500",
+        color_success: "focus:ring-green-500",
+        color_warning: "focus:ring-yellow-500",
+        color_error: "focus:ring-red-500",
+
+        disabled: "bg-gray-100 text-gray-400 cursor-not-allowed",
+        enabled: "",
+
+        error: "border-red-500 focus:ring-red-500",
+        noError: "",
+
+        fullWidth: "w-full",
+        defaultWidth: "w-auto",
+      },
       card: {
         base: "bg-white text-black shadow-lg rounded-xl max-w-80 max-h-full overflow-hidden",
         baseEffect: "transition duration-300 hover:-translate-y-4 hover:shadow-md",
@@ -169,6 +202,7 @@ export const useTheme = create((set, get) => ({
         align_left: "text-left",
         align_right: "text-right",
         align_start: "text-start",
+        align_center: "text-center",
       },
       chip: {
         base: "inline-flex items-center rounded-full transition-colors rounded-full px-3 py-1 text-sm font-medium w-fit grow-0",

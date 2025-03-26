@@ -9,10 +9,24 @@
       "status": "진행중",
       "createdAt": "2023-01-15T09:00:00Z",
       "modifiedAt": "2023-01-20T15:30:00Z",
-      "commitsIds": ["commit-1", "commit-2"],
-      "tags": ["웹", "모바일"],
-      "features": ["프로젝트 기록 저장", "커밋 형태로 작업 기록 관리", "작업 시간 측정 및 기록"],
-      "contributors": ["머피", "존", "캐럿럿"]
+      "commitsIds": [
+        "commit-1",
+        "commit-2"
+      ],
+      "tags": [
+        "웹",
+        "모바일"
+      ],
+      "features": [
+        "프로젝트 기록 저장",
+        "커밋 형태로 작업 기록 관리",
+        "작업 시간 측정 및 기록"
+      ],
+      "contributors": [
+        "머피",
+        "존",
+        "캐럿럿"
+      ]
     },
     {
       "id": "project-2",
@@ -22,10 +36,24 @@
       "status": "완료",
       "createdAt": "2023-02-10T10:00:00Z",
       "modifiedAt": "2023-03-05T18:45:00Z",
-      "commitsIds": ["commit-3", "commit-4", "commit-5"],
-      "tags": ["모바일", "앱"],
-      "features": ["상품 목록 및 검색", "장바구니 관리", "결제 시스템"],
-      "contributors": ["머피", "제임스"]
+      "commitsIds": [
+        "commit-3",
+        "commit-4",
+        "commit-5"
+      ],
+      "tags": [
+        "모바일",
+        "앱"
+      ],
+      "features": [
+        "상품 목록 및 검색",
+        "장바구니 관리",
+        "결제 시스템"
+      ],
+      "contributors": [
+        "머피",
+        "제임스"
+      ]
     },
     {
       "id": "project-3",
@@ -36,10 +64,27 @@
       "status": "진행중",
       "createdAt": "2023-04-10T08:30:00Z",
       "modifiedAt": "2023-05-18T14:20:00Z",
-      "commitsIds": ["commit-6", "commit-7", "commit-8"],
-      "tags": ["모바일", "생산성", "앱"],
-      "features": ["할 일 목록 관리", "캘린더 뷰", "알림 기능", "팀 공유"],
-      "contributors": ["머피", "케이트", "마이클"]
+      "commitsIds": [
+        "commit-6",
+        "commit-7",
+        "commit-8"
+      ],
+      "tags": [
+        "모바일",
+        "생산성",
+        "앱"
+      ],
+      "features": [
+        "할 일 목록 관리",
+        "캘린더 뷰",
+        "알림 기능",
+        "팀 공유"
+      ],
+      "contributors": [
+        "머피",
+        "케이트",
+        "마이클"
+      ]
     },
     {
       "id": "project-4",
@@ -50,10 +95,25 @@
       "status": "일시중지",
       "createdAt": "2023-06-05T11:45:00Z",
       "modifiedAt": "2023-07-12T16:30:00Z",
-      "commitsIds": ["commit-9", "commit-10"],
-      "tags": ["웹", "음악", "클라우드"],
-      "features": ["음악 업로드 및 스트리밍", "플레이리스트 생성", "음악 추천"],
-      "contributors": ["제임스", "소피아", "리암"]
+      "commitsIds": [
+        "commit-9",
+        "commit-10"
+      ],
+      "tags": [
+        "웹",
+        "음악",
+        "클라우드"
+      ],
+      "features": [
+        "음악 업로드 및 스트리밍",
+        "플레이리스트 생성",
+        "음악 추천"
+      ],
+      "contributors": [
+        "제임스",
+        "소피아",
+        "리암"
+      ]
     },
     {
       "id": "project-5",
@@ -64,10 +124,28 @@
       "status": "완료",
       "createdAt": "2023-08-10T09:15:00Z",
       "modifiedAt": "2023-09-25T13:40:00Z",
-      "commitsIds": ["commit-11", "commit-12", "commit-13", "commit-14"],
-      "tags": ["AI", "웹", "이미지"],
-      "features": ["텍스트-이미지 생성", "이미지 수정", "스타일 전이", "갤러리 저장"],
-      "contributors": ["머피", "에밀리", "다니엘"]
+      "commitsIds": [
+        "commit-11",
+        "commit-12",
+        "commit-13",
+        "commit-14"
+      ],
+      "tags": [
+        "AI",
+        "웹",
+        "이미지"
+      ],
+      "features": [
+        "텍스트-이미지 생성",
+        "이미지 수정",
+        "스타일 전이",
+        "갤러리 저장"
+      ],
+      "contributors": [
+        "머피",
+        "에밀리",
+        "다니엘"
+      ]
     },
     {
       "id": "project-6",
@@ -78,10 +156,26 @@
       "status": "진행중",
       "createdAt": "2023-10-15T10:20:00Z",
       "modifiedAt": "2023-11-28T17:10:00Z",
-      "commitsIds": ["commit-15", "commit-16"],
-      "tags": ["블록체인", "웹", "금융"],
-      "features": ["다중 암호화폐 관리", "트랜잭션 전송", "보안 키 관리", "시장 데이터 조회"],
-      "contributors": ["리암", "올리비아", "노아"]
+      "commitsIds": [
+        "commit-15",
+        "commit-16"
+      ],
+      "tags": [
+        "블록체인",
+        "웹",
+        "금융"
+      ],
+      "features": [
+        "다중 암호화폐 관리",
+        "트랜잭션 전송",
+        "보안 키 관리",
+        "시장 데이터 조회"
+      ],
+      "contributors": [
+        "리암",
+        "올리비아",
+        "노아"
+      ]
     },
     {
       "id": "project-7",
@@ -92,10 +186,27 @@
       "status": "완료",
       "createdAt": "2023-12-01T08:00:00Z",
       "modifiedAt": "2024-01-15T12:30:00Z",
-      "commitsIds": ["commit-17", "commit-18", "commit-19"],
-      "tags": ["모바일", "헬스케어", "AI"],
-      "features": ["운동 기록 추적", "식단 관리", "건강 지표 분석", "AI 기반 운동 코칭"],
-      "contributors": ["캐럿럿", "소피아", "에밀리"]
+      "commitsIds": [
+        "commit-17",
+        "commit-18",
+        "commit-19"
+      ],
+      "tags": [
+        "모바일",
+        "헬스케어",
+        "AI"
+      ],
+      "features": [
+        "운동 기록 추적",
+        "식단 관리",
+        "건강 지표 분석",
+        "AI 기반 운동 코칭"
+      ],
+      "contributors": [
+        "캐럿럿",
+        "소피아",
+        "에밀리"
+      ]
     }
   ],
   "commits": [
@@ -250,6 +361,22 @@
       "timeSpent": "32h",
       "createdAt": "2024-01-08T09:45:00Z",
       "modifiedAt": "2024-01-08T09:45:00Z"
+    },
+    {
+      "id": "06e3",
+      "projectId": "project-1",
+      "message": "aaaaa",
+      "timeSpent": "1m",
+      "createdAt": "2025-03-26T12:07:38.999Z",
+      "modifiedAt": "2025-03-26T12:07:38.999Z"
+    },
+    {
+      "id": "944a",
+      "projectId": "project-1",
+      "message": "ssssssss",
+      "timeSpent": "1m",
+      "createdAt": "2025-03-26T12:12:08.488Z",
+      "modifiedAt": "2025-03-26T12:12:08.488Z"
     }
   ]
 }
