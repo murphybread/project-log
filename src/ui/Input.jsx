@@ -28,7 +28,7 @@ const Input = ({
   const fullWidthClasses = useTheme((state) => state.getComponentStyle("input", fullWidth ? "fullWidth" : "defaultWidth"));
 
   return (
-    <div className={`relative ${fullWidthClasses}`}>
+    <div className={`relative `}>
       {startIcon && <div className="absolute left-3 top-1/2 transform -translate-y-1/2">{startIcon}</div>}
 
       <input
@@ -47,6 +47,7 @@ const Input = ({
           ${errorClasses}
           ${startIcon ? "pl-10" : ""}
           ${endIcon ? "pr-10" : ""}
+          ${fullWidthClasses}
           ${className}
         `}
         {...props}
