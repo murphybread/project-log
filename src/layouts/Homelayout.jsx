@@ -21,34 +21,34 @@ const HomeLayout = ({ onProjectSelect }) => {
   const [statusFilter, setStatusFilter] = useState("진행중");
   const [sortOption, setSortOption] = useState("최신순");
 
+  const fetchProjects = async () => {
+    try {
+      const client = new ClientApi();
+      const projectsData = await client.getAllProjects();
+
+      // 각 프로젝트에 대한 커밋 정보 가져오기
+      const projectsWithCommitCounts = await Promise.all(
+        projectsData.map(async (project) => {
+          const commits = await client.getCommitByProjectId(project.id);
+          return {
+            ...project,
+            commitCount: commits.length,
+            totalTime: TimeUtils.getAllCommitsTimes(commits),
+            recentCommitDate: TimeUtils.getRecentCommitsDate(commits),
+          };
+        })
+      );
+
+      setProjects(projectsWithCommitCounts);
+      setLoading(false);
+    } catch (error) {
+      console.error("프로젝트 데이터를 가져오는 중 오류 발생:", error);
+      setError("프로젝트를 불러오는데 실패했습니다.");
+      setLoading(false);
+    }
+  };
+
   useEffect(() => {
-    const fetchProjects = async () => {
-      try {
-        const client = new ClientApi();
-        const projectsData = await client.getAllProjects();
-
-        // 각 프로젝트에 대한 커밋 정보 가져오기
-        const projectsWithCommitCounts = await Promise.all(
-          projectsData.map(async (project) => {
-            const commits = await client.getCommitByProjectId(project.id);
-            return {
-              ...project,
-              commitCount: commits.length,
-              totalTime: TimeUtils.getAllCommitsTimes(commits),
-              recentCommitDate: TimeUtils.getRecentCommitsDate(commits),
-            };
-          })
-        );
-
-        setProjects(projectsWithCommitCounts);
-        setLoading(false);
-      } catch (error) {
-        console.error("프로젝트 데이터를 가져오는 중 오류 발생:", error);
-        setError("프로젝트를 불러오는데 실패했습니다.");
-        setLoading(false);
-      }
-    };
-
     fetchProjects();
   }, []);
 
@@ -120,32 +120,7 @@ const HomeLayout = ({ onProjectSelect }) => {
   });
 
   const handleProjectCreated = async (newProject) => {
-    // Refetch projects after creation
-    setLoading(true);
-    try {
-      const client = new ClientApi();
-      const projectsData = await client.getAllProjects();
-
-      // Each project needs commit data
-      const projectsWithCommitCounts = await Promise.all(
-        projectsData.map(async (project) => {
-          const commits = await client.getCommitByProjectId(project.id);
-          return {
-            ...project,
-            commitCount: commits.length,
-            totalTime: TimeUtils.getAllCommitsTimes(commits),
-            recentCommitDate: TimeUtils.getRecentCommitsDate(commits),
-          };
-        })
-      );
-
-      setProjects(projectsWithCommitCounts);
-    } catch (error) {
-      console.error("프로젝트 데이터를 가져오는 중 오류 발생:", error);
-      setError("프로젝트를 불러오는데 실패했습니다.");
-    } finally {
-      setLoading(false);
-    }
+    await fetchProjects();
   };
 
   const handleNewProjectClick = () => {
