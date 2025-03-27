@@ -1,24 +1,44 @@
 // Timer.jsx
 import React from "react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import Button from "@ui/Button";
 
 export function Timer({ initialTime = 0 }) {
   const [isRunning, setIsRunning] = useState(false);
   const [time, setTime] = useState(initialTime);
+  const startTimeRef = useRef(null);
+  const pausedTimeRef = useRef(initialTime);
+  const requestRef = useRef(null);
 
   const displayTime = (time) => {
     return Math.min(time, 59.99).toFixed(0).padStart(2, "0");
   };
 
   useEffect(() => {
-    let intervalId;
+    let animationFrameId = null;
+
     if (isRunning) {
-      intervalId = setInterval(() => {
-        setTime((prev) => prev + 10);
-      }, 10);
+      // 시작 시간 저장 (현재 시간)
+      startTimeRef.current = Date.now() - pausedTimeRef.current;
+
+      const updateTimer = () => {
+        const currentTime = Date.now();
+        const elapsedTime = currentTime - startTimeRef.current;
+        setTime(elapsedTime);
+        animationFrameId = requestAnimationFrame(updateTimer);
+      };
+
+      animationFrameId = requestAnimationFrame(updateTimer);
+    } else {
+      // 멈췄을 때 총 경과 시간 저장
+      pausedTimeRef.current = time;
     }
-    return () => clearInterval(intervalId);
+
+    return () => {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+      }
+    };
   }, [isRunning]);
 
   const toggleTimer = () => {
@@ -27,6 +47,10 @@ export function Timer({ initialTime = 0 }) {
 
   const resetTimer = () => {
     setTime(0);
+    pausedTimeRef.current = 0;
+    if (isRunning) {
+      startTimeRef.current = Date.now();
+    }
   };
 
   const handleRecordClick = () => {
