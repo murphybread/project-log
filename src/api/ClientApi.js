@@ -6,7 +6,40 @@ export class ClientApi {
   constructor() {
     this.client = this.createClient();
   }
-  // ClientApi.js에 추가
+
+  // Add to ClientApi.js
+  async createProject(projectData) {
+    try {
+      // 4자리 랜덤 16진수 ID 생성
+      const generateShortId = () => {
+        return Math.floor((1 + Math.random()) * 0x10000)
+          .toString(16)
+          .substring(1);
+      };
+
+      const shortId = generateShortId();
+
+      const response = await fetch(`${BASE_URL}/projects`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ...projectData,
+          id: shortId, // 짧은 랜덤 ID 사용
+          createdAt: new Date().toISOString(),
+          modifiedAt: new Date().toISOString(),
+        }),
+      });
+
+      if (!response.ok) throw new Error("Failed to create project");
+      return await response.json();
+    } catch (error) {
+      console.error("Error creating project:", error);
+      throw error;
+    }
+  }
+
   async createCommit(commitData) {
     try {
       const response = await fetch("http://localhost:4000/commits", {

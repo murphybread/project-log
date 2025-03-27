@@ -8,11 +8,14 @@ import Box from "@ui/Box";
 import Typography from "@ui/Typography";
 import Chip from "@ui/Chip";
 import { TimeUtils } from "@utils/TimeUtils";
+// Add these imports at the top of HomeLayout.jsx
+import ProjectFormModal from "@components/ProjectFormModal";
 
 const HomeLayout = ({ onProjectSelect }) => {
   const [projects, setProjects] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   // 필터링 상태 추가
   const [statusFilter, setStatusFilter] = useState("진행중");
@@ -116,6 +119,39 @@ const HomeLayout = ({ onProjectSelect }) => {
     return 0;
   });
 
+  const handleProjectCreated = async (newProject) => {
+    // Refetch projects after creation
+    setLoading(true);
+    try {
+      const client = new ClientApi();
+      const projectsData = await client.getAllProjects();
+
+      // Each project needs commit data
+      const projectsWithCommitCounts = await Promise.all(
+        projectsData.map(async (project) => {
+          const commits = await client.getCommitByProjectId(project.id);
+          return {
+            ...project,
+            commitCount: commits.length,
+            totalTime: TimeUtils.getAllCommitsTimes(commits),
+            recentCommitDate: TimeUtils.getRecentCommitsDate(commits),
+          };
+        })
+      );
+
+      setProjects(projectsWithCommitCounts);
+    } catch (error) {
+      console.error("프로젝트 데이터를 가져오는 중 오류 발생:", error);
+      setError("프로젝트를 불러오는데 실패했습니다.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleNewProjectClick = () => {
+    setIsModalOpen(true);
+  };
+
   return (
     <div className="container mx-auto p-6">
       <div className="mb-8">
@@ -142,6 +178,10 @@ const HomeLayout = ({ onProjectSelect }) => {
           </select>
         </div>
       </div>
+      <button className="mt-4 px-6 py-3 bg-lime-500 text-black rounded-md hover:bg-emerald-600 transition-colors" onClick={handleNewProjectClick}>
+        새 프로젝트 생성
+      </button>
+      <ProjectFormModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} onProjectCreated={handleProjectCreated} />
 
       {/* 프로젝트 그리드 */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
