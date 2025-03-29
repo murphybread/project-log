@@ -31,6 +31,10 @@
   - timer 버튼
   - 시작 <> 정지 버튼
   - 기록 버튼
+- ProjectFormModal
+  - modal폼을 입력받아 프로젝트 작성
+- InputCommit
+  - modal폼을 입력 받아 프로젝트에 커밋을 작성
 - SideNavigation
   - 프로젝트 타이틀
   - 프로젝트 개요 소개
