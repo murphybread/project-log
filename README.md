@@ -2,7 +2,15 @@
 
 매번 프로젝트를 너무 많이 만들고 이것저것 하다가 쉽게 관두는 것들이 너무 많아서
 이를 기록화 하기위한 프로젝트 사이트입니다.
-해당 프로젝트별로 수행한 기록이 커밋형태처럼 저장됨
+
+# install
+
+`npm install`
+
+# Usage
+
+`npm run dev`
+`json-server ./db.json --port 4000`
 
 # Pages
 
