@@ -70,9 +70,10 @@ function DashboardPage() {
   };
 
   // DashboardPage.jsx에 다음 코드를 추가합니다
-  const handleCommitAdded = () => {
-    // 커밋이 추가되면 loading 상태를 true로 설정하여 데이터를 다시 불러옵니다
-    setLoading(true);
+  const handleCommitAdded = (commitData) => {
+    if (!commitData) return;
+    // 전체 페이지 새로고침 대신 새로운 커밋만 상태에 추가
+    setCommits((prevCommits) => [...prevCommits, commitData]);
   };
 
   return (

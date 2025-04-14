@@ -35,18 +35,16 @@ const DashboardLayout = ({ children, project, sidebar, header, onCommitAdded }) 
         projectId: project.id,
         message: newCommit.message,
         timeSpent: newCommit.timeSpent,
+        createdAt: new Date().toISOString(),
       };
 
       // API를 통해 커밋 저장
-      await client.createCommit(commitData);
-
+      const response = await client.createCommit(commitData);
+      if (onCommitAdded && response) {
+        onCommitAdded(response);
+      }
       // 성공 메시지
       alert("커밋이 성공적으로 저장되었습니다!");
-
-      // 부모 컴포넌트에 알림 (DashboardPage에서 데이터 새로고침을 위해)
-      if (onCommitAdded) {
-        onCommitAdded();
-      }
     } catch (error) {
       console.error("커밋 저장 중 오류 발생:", error);
       alert("커밋을 저장하는 중 오류가 발생했습니다.");
